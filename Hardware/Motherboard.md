@@ -44,3 +44,67 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 - PCIe, SATA, USB, use serial bus. 
 
 ![Serial BUS and multiplexers](Images/Motherboard%203%20Multiplexers.png)
+
+# Chipset
+- Communications Hub + Traffic Control Centre
+- In the past, there are a lot of chips on the motherboard for controlling different components. Nowadays, they condense most chips to only a few chips, now called a chipset. **A chipset is a smaller set of chips that has replaced**
+## North Bridge, South Bridge
+![North, South Bridge on the motherboard](Images/Motherboard%204%20North%20South%20Bridge.png)
+- North Bridge: Closer to the North, facing the CPU socket --> Memory-sensitive components: RAM, GPU (PCIe / AGP), system memory.
+- South Bridge: Closer to the South, connecting to the North Bridge, acts as a communication hub for less memory-sensitive components: Storage devices (SATA), USB ports, onboard networking chip, IDE, etc. 
+- The North Bridge is faster than the South Bridge.
+
+![Platform Controller Hub replaces North, South Bridge](Images/Motherboard%205%20Platform%20Controller%20Hub.png)
+- Now, the North Bridge chip's functions are handled by the CPU while the South Bridge chip's functions are handled by the **Platform Controller Hub** (PCH).
+- Less travelling, faster performance
+
+# I/O Interface
+![I/O interface](Images/Motherboard%206%20IO%20Interface.png)
+## USB
+- USB - Universal Serial Bus <-- Many due to there are so many different peripherals that utilize the USB interface + power source.
+- A standard connection interface  that enables communication between devices and a host controller such as a personal computer.
+
+![]
+![]
+- USB Type A: Common, really universal.
+- USB Type B: Old, for printers.
+- Mini USB (Type A, B): Camera, MP3 Player. Replaced by Micro USB.
+- Micro USB: Android phone, bluetooth headset, external battery, smartwatch. Some are replaced by USB C.
+- USB C: Used with Thunderbolt 3 (40Gbps).
+**Generations**
+- 1.0: 1.5 Mbps.
+- 1.1: 12 Mbps.
+- 2.0: 480 Mbps - Flash drives, mice, keyboards.
+- 3.0: 5 Gbps - 3.1 Gen 1 (Blue), 3.2 Gen 1 (Red).
+- 3.1: 10 Gbps - 3.2 Gen 2 (Red).
+- 3.2: 20 Gbps - 3.2 Gen 2 x 2.
+- 4.0: 40 Gbps - USB, 4K, 16K, Thunderbolt 4.
+![]
+
+## Video adapters
+- Some also have built-in video adapters. Old: DVI, VGA; New: HDMI, DisplayPort. 
+
+## Network interface card
+![Network socket]
+
+## Sound card
+Integrated sound card: 
+- Lime Green (Line-out): primary output for audio playback (speakers, headphones).
+- Pink (Mic-in): Low currents, mic-level. Example: Microphone. 
+- Light blue (Line-in): Strong currents, line-level. Example: Piano. Both pink and blue are audio inputs, but they are indicative of the voltage level of the audio signal.
+- Orange (CS-Out/Center/Subwoofer): When you have a dedicated subwoofer or a center. Front speakers or a soundbar.
+- Black (RS-Out): Rear speakers. 
+- White (SS-Out): Side speakers.
+
+## I/O Shield
+![]
+- Protects against electromagnetic interference (EMI) between your motherboard and the components you are connecting to the IO panel (USB, HDMI, ethernet, etc).
+- Acts as another physical barrier on the back of the case (against dust and potentially insects).
+- Comes with the motherboard.
+- Installed before the motherboard.
+- Replacement --> Call the supplier. 
+
+
+
+
+
