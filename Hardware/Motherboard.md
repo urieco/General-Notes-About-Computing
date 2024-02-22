@@ -1,11 +1,3 @@
-<style>
-  img {
-    display: block;
-    margin: 0 auto;
-  }
-</style>
-<div style="text-align: justify;">
-
 Keyword:
 - PCI, PCIe, AGP, ISA
 - BUS, Serial / Parallel BUS, Multiplexer
@@ -52,5 +44,3 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 - PCIe, SATA, USB, use serial bus. 
 
 ![Serial BUS and multiplexers](Images/Motherboard%203%20Multiplexers.png)
-
-</div>
