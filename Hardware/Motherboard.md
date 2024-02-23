@@ -8,9 +8,9 @@
   - Platform Controller Hub
 4. [I/O Interface](#io-interface)
   - USB
-  - Video adapters
-  - Network interface card
-  - Sound card
+  - Video ports --> Video cards / Video adapters 
+  - Ethernet port --> Network interface card / Network adapter / Wifi adapter
+  - Sound ports --> Integrated sound chipset / Đeicated sound card
   - I/O Shield
 
 
@@ -76,8 +76,8 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 - USB - Universal Serial Bus <-- Many due to there are so many different peripherals that utilize the USB interface + power source.
 - A standard connection interface  that enables communication between devices and a host controller such as a personal computer.
 
-![]
-![]
+![USB Types](Images/Motherboard%207%20USB%20Types.png)
+![USB Types 2](Images/Motherboard%208%20USB%20Types%202.png)
 - USB Type A: Common, really universal.
 - USB Type B: Old, for printers.
 - Mini USB (Type A, B): Camera, MP3 Player. Replaced by Micro USB.
@@ -91,16 +91,21 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 - 3.1: 10 Gbps - 3.2 Gen 2 (Red).
 - 3.2: 20 Gbps - 3.2 Gen 2 x 2.
 - 4.0: 40 Gbps - USB, 4K, 16K, Thunderbolt 4.
-![]
+![USB Gens and How confusing they are](Images/Motherboard%209%20USB%20Gens.png)
 
-## Video adapters
+## Video ports
 - Some also have built-in video adapters. Old: DVI, VGA; New: HDMI, DisplayPort. 
+- The video ports link to the built-in video adapters on the motherboard, for CPUs that have integrated graphics cards / **integrated** GPU. 
+- The other type of video card is **dedicated** GPU. 
+![Video ports](Images/Motherboard%2010%20Video%20ports.png)
 
-## Network interface card
-![Network socket]
+## Ethernet port / Network port
+- The Ethernet port on a computer's I/O panel is typically connected to the computer's network interface card (NIC) (usually built-in) or network adapter. 
+![Ethernet port](Images/Motherboard%2011%20Network%20port.png)
+- Some even have a built-in Wifi adapter with two knobs for antennas. 
 
-## Sound card
-Integrated sound card: 
+## Sound ports
+Integrated sound chipset: 
 - Lime Green (Line-out): primary output for audio playback (speakers, headphones).
 - Pink (Mic-in): Low currents, mic-level. Example: Microphone. 
 - Light blue (Line-in): Strong currents, line-level. Example: Piano. Both pink and blue are audio inputs, but they are indicative of the voltage level of the audio signal.
@@ -109,7 +114,7 @@ Integrated sound card:
 - White (SS-Out): Side speakers.
 
 ## I/O Shield
-![]
+![I/O Shield](Images/Motherboard%2012%20IO%20Shield.png)
 - Protects against electromagnetic interference (EMI) between your motherboard and the components you are connecting to the IO panel (USB, HDMI, ethernet, etc).
 - Acts as another physical barrier on the back of the case (against dust and potentially insects).
 - Comes with the motherboard.
