@@ -1,6 +1,18 @@
-Keyword:
-- PCI, PCIe, AGP, ISA
-- BUS, Serial / Parallel BUS, Multiplexer
+# Table of Contents
+1. [Peripherals](#peripherals)
+2. [BUS](#bus)
+  - Why 'BUS'?
+  - Serial and Parallel BUS
+3. [Chipset](#chipset)
+  - North Bridge, South Bridge
+  - Platform Controller Hub
+4. [I/O Interface](#io-interface)
+  - USB
+  - Video adapters
+  - Network interface card
+  - Sound card
+  - I/O Shield
+
 
 # Peripherals
 **External devices or components that are connected to a computer or other device to extend its functionality** to provide additional capabilities. These devices are typically used to input data, output information, or perform specific tasks, and they can vary widely in form and function. 

@@ -1,3 +1,9 @@
+# Table of Contents
+1. [Bit](#bit)
+  - *-bit data
+  - Bit and Byte
+  - Decimal Prefix and Binary Prefix (Kilo vs Kibi)
+
 # Bit
 ## *-bit data
 Ex: 16-bit data
