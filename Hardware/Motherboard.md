@@ -12,6 +12,10 @@
   - Ethernet port --> Network interface card / Network adapter / Wifi adapter
   - Sound ports --> Integrated sound chipset / Đeicated sound card
   - I/O Shield
+5. [Form factors](#form-factors)
+6. [Storage](#storage)
+  - SATA
+  - SAS
 
 
 # Peripherals
@@ -120,6 +124,37 @@ Integrated sound chipset:
 - Comes with the motherboard.
 - Installed before the motherboard.
 - Replacement --> Call the supplier. 
+
+# Form factors
+- Standardization of sizes, arrangements, (amount of) expansion slots...
+- Most common form: ATX.
+- Advice: Check for what kinds of form factors does your PC case supports. 
+![Form factors (Left to Right): EATX, ATX, micro-ATX, mini-ITX](Images/Motherboard%2013%20Form%20factors.png)
+![Form factors and sizes in PC case](Images/Motherboard%2014%20Form%20factors%20in%20PC%20case.png)
+
+In short: 
+- EATX: 30.5 x 33 (cm) - 8 RAM slots. 4 expansion slots
+- ATX: 30.5 x 24.4 (cm) - 4 RAM slots. 4 expansion slots
+- Micro-ATX (mATX): 24.4 x 24.4 (cm) - 2 RAM slots. Less expansion slots (4 --> 2). Square shape.
+- Mini-ITX (Nano-ITX): 17 x 17 (cm). One PCIe (mostly for GPU). 
+
+# Storage
+## SATA - Serial Advanced Technology Attachment
+For the typical consumer desktop and laptop computers, most hard drives use SATA cables for data transfer and power. 
+- Cheaper.
+- Used for archiving.
+- Connects to a dozen or so storage devices.
+- SATA generations
+  + SATA I: 1.5 Gbps.
+  + SATA II: 3.0 Gbps.
+  + SATA: III: 6.0 Gbps.
+- Alternatives: SAS, Older (IDE, PATA (Parallel ATA)).
+
+## SAS - Serial Attached SCSI
+- Pricier but faster.
+- Connects more devices than SATA, 128 devices. 
+- Good for storage devices used in **servers** (most common usage). 
+
 
 
 
