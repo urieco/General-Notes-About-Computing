@@ -16,6 +16,9 @@
 6. [Storage](#storage)
   - SATA
   - SAS
+7. [RAM](#ram)
+  - DIMM, SO-DIMM, FB-DIMM, UDIMM, RDIMM
+  - ECC
 
 
 # Peripherals
@@ -136,7 +139,7 @@ In short:
 - EATX: 30.5 x 33 (cm) - 8 RAM slots. 4 expansion slots
 - ATX: 30.5 x 24.4 (cm) - 4 RAM slots. 4 expansion slots
 - Micro-ATX (mATX): 24.4 x 24.4 (cm) - 2 RAM slots. Less expansion slots (4 --> 2). Square shape.
-- Mini-ITX (Nano-ITX): 17 x 17 (cm). One PCIe (mostly for GPU). 
+- Mini-ITX (Nano-ITX): 17 x 17 (cm). One PCIe (mostly for GPU).
 
 # Storage
 ## SATA - Serial Advanced Technology Attachment
@@ -155,6 +158,24 @@ For the typical consumer desktop and laptop computers, most hard drives use SATA
 - Connects more devices than SATA, 128 devices. 
 - Good for storage devices used in **servers** (most common usage). 
 
+# RAM
+- Desktop: DIMM (Dual In-Line Memory).
+- Laptop: SO-DIMM (Space-constraints and different design considerations) (Small Outline Dual In-Line Memory Module). It can also be configured to use less power. 
+- FB-DIMM (Fully Buffered DIMM): High-performance computing systems. 
+- UDIMM (Unbuffered DIMM): The most common type of memory module used in consumer-grade desktop and server systems. It is **unbuffered**, meaning that **it does not contain additional memory buffers or registers between the memory chips and the memory controller on the motherboard.**
+- RDIMM (Registered DIMM): A **buffer or register** is a small amount of memory integrated into the DIMM module itself. Its primary function is to act as intermediary between the memory chips on the DIMM and the memory controller on the motherboard. → **helps to improve the stability and reliability of the memory subsystem by isolating the memory chips from the electrical load of the memory controller. Support larger memory configurations by reducing the electrical load on the memory controller.** 
+
+## ECC
+ECC memory is a type of RAM found in workstations and servers. It’s valued by professionals and businesses with critical data for its ability to automatically detect and correct memory errors, thus fighting data corruption. It’s also supposed to lead to less crashes of a server / workstation over non-ECC memory.
+- Is not a sure-fire way to deal with all errors completely.
+- **8 chips for storing data + 1 for error detection and correction.**
+- 0.09% failure rate, compared to 0.6% of non-ECC. However, ECC memory is generally 0.25% slower.
+- **Needs mainboards that support ECC** (ex: Threadripper).
+- The 9th chip holds a mathematical process that ensures the data stored in the memory is correct. If there is an error, then it will recreate the correct data in real time. 
+- **All registered memory is ECC.**
+- **Non-ECC, non-buffered memory.**
+![ECC and Non-ECC memory](Images/Motherboard%2015%20ECC%20and%20Non-ECC%20RAM.png)
+![More ECC and Non-ECC memory](Images/Motherboard%2016%20ECC%20and%20Non-ECC%20RAM%202.png)
 
 
 
