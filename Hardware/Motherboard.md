@@ -17,9 +17,13 @@
   - SATA
   - SAS
 7. [RAM](#ram)
-  - DIMM, SO-DIMM, FB-DIMM, UDIMM, RDIMM
+  - Types: DIMM, SO-DIMM, FB-DIMM, UDIMM, RDIMM, SIMM, RIMM, NVDIMM
+  - RAM Kit
+  - RAM Bus Speed
   - ECC
-
+  - Memory channel
+  - Rank
+  - DPC
 
 # Peripherals
 **External devices or components that are connected to a computer or other device to extend its functionality** to provide additional capabilities. These devices are typically used to input data, output information, or perform specific tasks, and they can vary widely in form and function. 
@@ -55,7 +59,7 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 ## Serial and Parallel BUS
 - Design: **One lane** and **Multiple lanes**
 - Architecture:
-  + Parallel BUS: Multiple lanes, information is split, more pront to electromagnetic interference. Limited by how accurately you can sync data. 
+  + Parallel BUS: Multiple lanes, information is split, more prone to electromagnetic interference. Limited by how accurately you can sync data. 
   + Serial BUS: One channel, one lane, slower (back then), for long range, less expensive. As technology advances, it is replacing the old parallel bus since the clock speed is getting faster. 
 - 1 lane !== 1 bit anymore.
 - **Serial**: To keep circuits small, **multiplexers** are implemented. This process divided, say a 32-bit address into two halves and then transmitted them over two clock cycles. 
@@ -80,7 +84,7 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 # I/O Interface
 ![I/O interface](Images/Motherboard%206%20IO%20Interface.png)
 ## USB
-- USB - Universal Serial Bus <-- Many due to there are so many different peripherals that utilize the USB interface + power source.
+- USB - Universal Serial Bus <-- There are many types of USB due to the large number of peripherals that utilize the USB interface + power source.
 - A standard connection interface  that enables communication between devices and a host controller such as a personal computer.
 
 ![USB Types](Images/Motherboard%207%20USB%20Types.png)
@@ -90,6 +94,7 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 - Mini USB (Type A, B): Camera, MP3 Player. Replaced by Micro USB.
 - Micro USB: Android phone, bluetooth headset, external battery, smartwatch. Some are replaced by USB C.
 - USB C: Used with Thunderbolt 3 (40Gbps).
+
 **Generations**
 - 1.0: 1.5 Mbps.
 - 1.1: 12 Mbps.
@@ -98,12 +103,14 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 - 3.1: 10 Gbps - 3.2 Gen 2 (Red).
 - 3.2: 20 Gbps - 3.2 Gen 2 x 2.
 - 4.0: 40 Gbps - USB, 4K, 16K, Thunderbolt 4.
+
 ![USB Gens and How confusing they are](Images/Motherboard%209%20USB%20Gens.png)
 
 ## Video ports
 - Some also have built-in video adapters. Old: DVI, VGA; New: HDMI, DisplayPort. 
 - The video ports link to the built-in video adapters on the motherboard, for CPUs that have integrated graphics cards / **integrated** GPU. 
 - The other type of video card is **dedicated** GPU. 
+
 ![Video ports](Images/Motherboard%2010%20Video%20ports.png)
 
 ## Ethernet port / Network port
@@ -117,8 +124,8 @@ The sound ports on a computer's I/O panel connect to the computer's sound card o
 
 Integrated sound chipset: 
 - Lime Green (Line-out): primary output for audio playback (speakers, headphones).
-- Pink (Mic-in): Low currents, mic-level. Example: Microphone. 
-- Light blue (Line-in): Strong currents, line-level. Example: Piano. Both pink and blue are audio inputs, but they are indicative of the voltage level of the audio signal.
+- Pink (Mic-in): Low currents, mic-level. Ex: Microphone. 
+- Light blue (Line-in): Strong currents, line-level. Ex: Piano. Both pink and blue are audio inputs, but they are indicative of the voltage level of the audio signal.
 - Orange (CS-Out/Center/Subwoofer): When you have a dedicated subwoofer or a center. Front speakers or a soundbar.
 - Black (RS-Out): Rear speakers. 
 - White (SS-Out): Side speakers.
@@ -141,6 +148,7 @@ There are also dedicated sound cards that can be used for:
 - Standardization of sizes, arrangements, (amount of) expansion slots...
 - Most common form: ATX.
 - Advice: Check for what kinds of form factors does your PC case supports. 
+
 ![Form factors (Left to Right): EATX, ATX, micro-ATX, mini-ITX](Images/Motherboard%2013%20Form%20factors.png)
 ![Form factors and sizes in PC case](Images/Motherboard%2014%20Form%20factors%20in%20PC%20case.png)
 
@@ -152,7 +160,7 @@ In short:
 
 # Storage
 ## SATA - Serial Advanced Technology Attachment
-For the typical consumer desktop and laptop computers, most hard drives use SATA cables for data transfer and power. 
+For the typical consumer desktop and laptop computers. Most hard drives use SATA cables for data transfer and power. 
 - Cheaper.
 - Used for archiving.
 - Connects to a dozen or so storage devices.
@@ -168,6 +176,7 @@ For the typical consumer desktop and laptop computers, most hard drives use SATA
 - Good for storage devices used in **servers** (most common usage). 
 
 # RAM
+## Types
 **DIMM** (Dual In-Line Memory), a **generic term** used to describe a type of memory module that consists of integrated circuits (ICs) mounted on a small circuit board. DIMMs are used to provide random access memory (RAM) in computers, servers, and other electronic devices: 
 - **SO-DIMM** (Small Outline Dual In-Line Memory Module): Designed for space-constraints. It can also be configured to use less power. Used primarily in laptops, notebooks, and small form factor computers where space is limited. 
 - **Micro-DIMM**: Even smaller than **SO-DIMM**. It is used in ultra-compact devices such as tablets, handheld devices, and embedded systems where space is extremely limtied. 
@@ -176,11 +185,31 @@ For the typical consumer desktop and laptop computers, most hard drives use SATA
 - **RDIMM** (Registered DIMM): A **buffer or register** is a small amount of memory integrated into the DIMM module itself. Its primary function is to act as intermediary between the memory chips on the DIMM and the memory controller on the motherboard. It helps  improve the stability and reliability of the memory subsystem by isolating the memory chips from the electrical load of the memory controller. Support larger memory configurations by reducing the electrical load on the memory controller. 
 - **LRDIMM** (Load-Reduced DIMM): LRDIMMS are similar to RDIMMS, but include additional buffering to reduce electrical load and improve memory capacity. They are commonly used in high-density server configurations and memory-intensive applications.
 
-Other (outdated) types of memory module:
+**Other (outdated) types of memory module:**
 - **SIMM** (Single In-line Memory Module): Older type. Unlike **DIMMs**, which have separate electrical contacts on both sides of the module, SIMMs have a single row of electrical contacts on one side.
 - **RIMM** (Rambus In-line Memory Module): Designed for Rambus DRAM (RDRAM). 1990s - Early 2000s. They have a different physical and electrical design compared to DIMMs and are not compatible with standard DDR or DDR2 memory technologies.
 - **FB-DIMM** (Fully Buffered DIMM):  FB-DIMM is a specialized type of DIMM that incorporates a buffering or hub component to reduce electrical load and improve memory capacity. FB-DIMMs were used in some high-performance computing systems and servers but have largely been replaced by other memory technologies due to their higher power consumption and complexity. 
 - **NVDIMM** (Non-Volatile Dual In-line Memory Module): Similar to a hard drive or SSD in the sense that it provides persistent storage for data even when power is removed from the system. 
+
+## RAM Kit
+**RAM kit**: Consists of multiple RAM sticks (modules) that are sold together as a package and have the same specifications. By purchasing a RAM kit, you ensure that all the RAM sticks in the kit are compatible with each other (validated to work with each other flawlessly) and are designed to work together seamlessly in a multi-channel memory configuration.
+
+![Quad channel RAM kit](Images/Motherboard%2017%20Quad%20channel%20RAM%20kit.png)
+- Triple channel kit.
+- Dual channel kit.
+- Single module.
+
+![Specifications of T-Create Expert 32GB Kit (2 x 16GB) DDR5-6000 PC5-48000 CL30 Dual Channel Desktop Memory Kit](Images/Motherboard%2018%20Memory%20kit%20specification%20example.png)
+
+## RAM Bus Speed
+- The frequency at which the RAM operates, typically measured in MHz (megahertz) or GHz (gigahertz). This frequency indicates how quickly the RAM can transfer data. It can also be referred to as **"transfer rate"**.
+
+![DDR4 RAM Bus Speed](Images/Motherboard%2022%20DDR4%20RAM%20Speed.png)
+
+Ex: 
+- Memory speed (Friendly name) DDR4-4400 --> 4400 MHz --> 4.4 GHz --> 1 **memory cycle** per (1 / (4.4 x 10^9)) of a second.
+- (Industry name) PC4-35200 --> 35200 MB/s
+
 
 ## ECC
 ECC memory is a type of RAM found in workstations and servers. It’s valued by professionals and businesses with critical data for its ability to automatically detect and correct memory errors, thus fighting data corruption. It’s also supposed to lead to less crashes of a server / workstation over non-ECC memory.
@@ -202,26 +231,22 @@ Considerations:
 ![More ECC and Non-ECC memory](Images/Motherboard%2016%20ECC%20and%20Non-ECC%20RAM%202.png)
 
 ## Memory channel
-**RAM kit**: Consists of multiple RAM sticks (modules) that are sold together as a package and have the same specifications. By purchasing a RAM kit, you ensure that all the RAM sticks in the kit are compatible with each other (validated to work with each other flawlessly) and are designed to work together seamlessly in a multi-channel memory configuration.
-
-![Quad channel RAM kit](Images/Motherboard%2017%20Quad%20channel%20RAM%20kit.png)
-- Triple channel kit.
-- Dual channel kit.
-- Single module.
-
-![Specifications of T-Create Expert 32GB Kit (2 x 16GB) DDR5-6000 PC5-48000 CL30 Dual Channel Desktop Memory Kit](Images/Motherboard%2018%20Memory%20kit%20specification%20example.png)
-
 **RAM slots and Memory channel**
 - RAM slots are physical slots on the motherboard where you insert the RAM modules.
-- The memory channel refers to the pathway through which data is transferred between the RAM modules and the CPU's memory controller. 
-- Memory channel is 64-bit wide. **The memory channel for earlier mainboard is not always 64-bit wide**
+- The memory channel refers to the logical pathways or interfaces through which data is transferred between the RAM modules and the CPU's memory controller. 
+- Memory channel is 64-bit wide in modern systems. **The memory channel for earlier mainboard is not always 64-bit wide**. This refers to the amount of data that can be transferred at once, and it's typically measured in bits. 
 - This limitation is primarily determined by the physical design of the memory controller and the memory modules. 
-- It is also due to the width provding a good balance between data transfer speed and complexity / cost of implementation. Having a wider memory channel, such as 128-bit or 256-bit, could potentially increase the data transfer rate even further. However, this would require more complex memory controller designs and could significantly increase manufacturing costs. Additionally, the benefits of wider memory channels may be limited by other factors, such as the speed of the memory modules themselves and the overall architecture of the system.
+- It is also due to the width provding a good balance between data transfer speed and complexity / cost of implementation. **A memory channel can be designed to have more than 64-bit width**. Having a wider memory channel, such as 128-bit or 256-bit, could potentially increase the data transfer rate even further. However, this would require more complex memory controller designs and could significantly increase manufacturing costs. Additionally, the benefits of wider memory channels may be limited by other factors, such as the speed of the memory modules themselves and the overall architecture of the system.
 
-Example: A typical ATX motherboard has four RAM slots and it supports **dual-channel configurations**. The RAM slots are arranged in pairs, color-coded accordingly. Each pair is connected to a separate memory channel. They share the same memory bandwidth that each channel provides. 
+Ex: A typical ATX motherboard has four RAM slots and it supports **dual-channel configurations**. The RAM slots are arranged in pairs, color-coded accordingly. For each pair, two slots of RAM connects to **two 64-bit interfaces / memory channels** - The channels are NOT connected to each other. Rather, they operate in parallel, allowing the system to read from or write to both channels simultaneously under the right conditions. 
 
---> Each module will be able to send or receive data in 64-bit chunks, but since two modules are sharing the same channel, the memory controller will alternate between accessing each module. So, during each **memory cycle**, only **64 / 2 = 32 bits** fo data from each RAM module can be transferred to or from the memory controller. 
+--> Each module will be able to send or receive data in 64-bit chunks, the memory controller will alternate between accessing each module. So, during each **memory cycle**, 64 bits of data from each RAM module can be transferred to or from the memory controller. 
 
+In quad-channel configurations, often found in high-end workstations and servers, there are four slots connected to four separate channels. 
+
+==> Multiple channels running parallel is similar to how Parallel BUS works (see also [Parallel BUS](#serial-and-parallel-bus)). The data is divided into smaller chunks, which are then sent down separate paths or channels. This allows for more data to be transferred at the same time, increasing the overall throughput of the system. However, one the challenges with a parallel bus is synchronizing the data between different lines. Rather than relying on precise timing between different lines, each memory channel operates independently, with its own clock signal. This can help to reduce the issues associated with skew, since the data on each channel is synchronized locally.
+
+==> You can perceive that each channel is utilizing a Serial BUS approach. In modern systems, the memory interface typically uses a high-speed serial communication protocol, such as DDR (Double Data Rate) SDRAM, which allows for fast and efficient data transfer over a single line or differential pair. Each memory channel operates independently, with its own dedicated interface and clock signal, allowing it to transfer data to and from the memory controller independently of the other channels. This means that one channel can be transferring data to the memory controller while another channel is receiving data from a different source, such as the CPU or an input/output peripheral.
 
 **Memory controller**
 - Memory controller, which is typically integrated into the CPU or part of the chipset on the motherboard, manages the communication between the CPU and the RAM modules/sticks. When the CPU needs to access data from RAM, the memory controller retrieves the data from the appropriate memory module(s) and transfers it to the CPU via the memory channel. 
@@ -231,12 +256,18 @@ Example: A typical ATX motherboard has four RAM slots and it supports **dual-cha
 
 **Dual-channel configruations**
 
+Scenario: 1 x 32 GB < 2 x 16 GB?
+- Dual-channel memory allows the motherboard to access two memory modules simultaneously, effectively doubling the data transfer rate between the memory and the CPU. This means that the system can read and write data faster when using two RAM modules compared to one. 
+- Improved Memory Bandwidth: 
+- Balanced Load: The memory controller can evenly distribute the workload between the modules, optimizing performance. In contrast, a single 32 GB RAM stick would require the memory controller to handle all the data transfers, potentially leading to bottlenecks and reduced efficiency. **You can think of single-core CPU and multi-core CPU**. 
+
+Ex: Memory channel can efficiently fetch 64-bit data (going through a 64-bit channel) from one module in one single cycle. In the same cycle, the other module can be utilized for other tasks, such as handling inputs from the keyboard and mouse or fetching data from applications stored on the hard drives. 
+- Redundancy and Fault Tolerance: With two RAM sticks, you have a fail-safe solution for when one of your RAM modules turns bad. 
 
 **Dual RAM or Quad RAM**
 (Or 1 x 32GB vs 2 x 16GB vs 4 x 8GB)
 
 Usually, most mainboard only supports dual channel, which utilize both channels. If you want to use all channels with 4 x setup, you should make sure that the mainboard supports quad channels.
-
 
 ## Rank
 - The width of a memory rank is also referred as the memory bus or memory channel. 
@@ -244,3 +275,16 @@ Usually, most mainboard only supports dual channel, which utilize both channels.
 - It can transfer 64 bits of data in parallel in one **memory cycle**. (Different from **Computing cycle** of the CPU).
 - A memory rank has not always been 64-bit. Like how memory channel wasn't always 64-bit width. It has increased over time alongside advancements in computer architecture and memory technology.
 - A rank can increase from 64-bit to 128-bit rank in the future as technology advances. (<-- A memory channel will increase from 64-bit to 128-bit).
+
+![DRAM Ranks](Images/Motherboard%2019%20DRAM%20Ranks.png)
+- Dual rank is always faster than a single rank. 
+- 1 Dual-rank module of 32 GB = 2 Single-rank modules of 16 GB (Applying the same setup of dual-channel configurations mentioned above). **Again, the analogy of single-core CPU and multi-core CPU**
+
+Ex: 
+- 8GB 1Rx8: 8 GB RAM Single Rank, 8 chips, 8-bit per chip x 8 = 64-bit
+![Single Rank, 8 chips](Images/Motherboard%2020%20Single%20Rank%20&%208%20Chips.png)
+
+- 8GB 2Rx8: 8 GB RAM, Dual Rank, 8 chips, 16-bit per chip x 8 = 128-bit (2 ranks)
+![Dual Rank, 8 chips](Images/Motherboard%2021%20Dual%20Rank%20&%208%20Chips.png)
+
+## DPC
