@@ -24,6 +24,8 @@
   - Memory channel
   - Rank
   - DPC
+[CPU](#CPU)
+[How the computer functions](#how-the-computer-functions)
 
 # Peripherals
 **External devices or components that are connected to a computer or other device to extend its functionality** to provide additional capabilities. These devices are typically used to input data, output information, or perform specific tasks, and they can vary widely in form and function. 
@@ -70,7 +72,8 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 
 # Chipset
 - Communications Hub + Traffic Control Centre
-- In the past, there are a lot of chips on the motherboard for controlling different components. Nowadays, they condense most chips to only a few chips, now called a chipset. **A chipset is a smaller set of chips that has replaced**
+- In the past, there are a lot of chips on the motherboard for controlling different components. Nowadays, they condense most chips to only a few chips, now called a chipset. **A chipset is a smaller set of chips that has replaced**.
+- The CPU's communication with other I/O interfaces is typically handled by the chipset (The CPU has communicated directly with the RAM and the GPU through dedicated interfaces).
 ## North Bridge, South Bridge
 ![North, South Bridge on the motherboard](Images/Motherboard%204%20North%20South%20Bridge.png)
 - North Bridge: Closer to the North, facing the CPU socket --> Memory-sensitive components: RAM, GPU (PCIe / AGP), system memory.
@@ -238,7 +241,7 @@ Considerations:
 - This limitation is primarily determined by the physical design of the memory controller and the memory modules. 
 - It is also due to the width provding a good balance between data transfer speed and complexity / cost of implementation. **A memory channel can be designed to have more than 64-bit width**. Having a wider memory channel, such as 128-bit or 256-bit, could potentially increase the data transfer rate even further. However, this would require more complex memory controller designs and could significantly increase manufacturing costs. Additionally, the benefits of wider memory channels may be limited by other factors, such as the speed of the memory modules themselves and the overall architecture of the system.
 
-Ex: A typical ATX motherboard has four RAM slots and it supports **dual-channel configurations**. The RAM slots are arranged in pairs, color-coded accordingly. For each pair, two slots of RAM connects to **two 64-bit interfaces / memory channels** - The channels are NOT connected to each other. Rather, they operate in parallel, allowing the system to read from or write to both channels simultaneously under the right conditions. 
+Ex: A typical ATX motherboard has four RAM slots and it supports **dual-channel configurations**. The RAM slots are arranged in pairs, color-coded accordingly. For each pair, two slots of RAM connects to **two 64-bit interfaces / memory channels** - The channels are NOT connected to each other. Rather, they operate in parallel, allowing the system to read from or write to both modules simultaneously under the right conditions. 
 
 --> Each module will be able to send or receive data in 64-bit chunks, the memory controller will alternate between accessing each module. So, during each **memory cycle**, 64 bits of data from each RAM module can be transferred to or from the memory controller. 
 
@@ -288,3 +291,19 @@ Ex:
 ![Dual Rank, 8 chips](Images/Motherboard%2021%20Dual%20Rank%20&%208%20Chips.png)
 
 ## DPC
+
+# CPU
+- The CPU communicates directly with the RAM and the GPU through dedicated interfaces, while communication with other I/O interfaces is typically handled by the chipset.
+
+# How the computer functions
+Ex: I click on the icon of the application called **Firefox**
+
+1. The mouse sends an input signal to the computer's motherboard, which is received by the input/output controller hub (ICH) in the chipset.
+2. The ICH forwars the input signal to the CPU, which processes it and determines that the user has clicked on the Firefox icon. 
+  - The **File Explorer** (or **Windows Explorer** on Windows OS) is responsible for managing the graphical user interface (GUI) of the OS, including desktop and its icons. It starts on startup.
+  - It determines that the Firefox icon that I click on refers to the application Firefox.exe.
+3. The CPU sends a request to the memory controller (typically integrated on the CPU itself), to retrieve the data for the Firefox application (in the hard drive) from the system's RAM.  
+4. The memory controller instructs the RAM modules to forward the data to the itself and then the CPU to process. 
+5. The CPU processes the data for the Firefox application (.exe file with instructions on how to run it) and sends instructions to responsible components, particularly the GPU, to render the application's graphical user interface (GUI) on the computer's display.
+6. The GPU receives the instructions and retrieves the necessary textures, shaders, and other graphical data from its own dedicated video memory (VRAM).
+7. The GPU processes the graphical data and sends the resulting video signal to the computer's display, which shows the Firefox application's GUI.
