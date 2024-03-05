@@ -25,6 +25,9 @@
   - Rank
   - DPC
 [CPU](#CPU)
+  - Structure
+  - Clock speed (GHz) and Cycle
+  - 32-bit and 64-bit architecture
 [How the computer functions](#how-the-computer-functions)
 
 # Peripherals
@@ -294,6 +297,34 @@ Ex:
 
 # CPU
 - The CPU communicates directly with the RAM and the GPU through dedicated interfaces, while communication with other I/O interfaces is typically handled by the chipset.
+## Structure
+- Integrated Head Spreader, the metal part on top of the circuit.
+- Metal package which holds the integrated circuit.
+- Integrated circuit = Die is mounted on a printed circuit board.
+- Printed circuit board the distributes the 1,200 connection points on landing pads that interface with the landing grid array on the motherboard.
+
+![The structure of a CPU](Images/Motherboard%2023%20The%20structure%20of%20a%20CPU.png)
+- A bunch of transistors.
+
+![Shared L3 Cache, Ring Interconnect and Integrated Graphics Processor](Images/Motherboard%2024%20Shared%20L3%20Cache,%20Ring%20Interconnect%20and%20Integrated%20Graphics%20Processor.png)
+
+## Clock Speed (GHz) and Cycle
+In computing, a **computation cycle** typically refers to **one complete execution of a basic operation by the CPU** - how it finishes processing [32-bit or 64-bit sequences](../Computer%20Science/General%20Knowledge.md#bit). (Differentiating from a memory cycle of the RAM with BUS speed denoted by MHz like DDR4-4400)
+
+Ex: A CPU's clock speed is **2.7 GHz** → It can execute **2.7 billion (10^6) cycles per second**. Each cycle corresponds to one basic operation that the CPU can perform. In the context of a 2.7 GHz CPU, **one cycle occurs every 1 / (2.7 x 10^9) seconds = 0.370 nanoseconds**.
+
+## 32-bit and 64-bit architecture
+In a 32-bit computer architecture, the CPU processes data in 32-bit units, which means it can process **32 bits (or 4 bytes) of data - a sequence of either zeros or ones (01010101000001000… - 32-character-long)** in one CPU cycle. 
+In 64-architecture, the CPU can process data in 64-bit units, effectively doubling the amount of data it can handle in a single cycle compared to a 32-bit architecture. If both CPUs of the two architectures are operating at the same clock speed, the 64-bit CPU can process 64-character-long sequences of either zeros or ones. 
+
+**Other differences**:
+Category       | 32-bit | 64-bit | Notes 
+---|---|---|---
+Memory support | 4GB    | 128GB or more | 32-bit system may not be able to utilize the available RAM if it exceeds 4GB
+Performance    | Worse  | It handles larger amounts of register space / memory, processes more data per clock cycle. It can perform 64-bit integers and floating-point numbers more efficiently.
+Compatibility  | Only 32-bit applications | 32-bit AND 64-bit applications | Some 32-bit applications require specific support to combat compatibility issues to run on 64-bit systems. Some older drivers for 32-bit applications aren't written for 64-bit systems. 
+Resource usage | Less   | Consume more due to larger data structures and pointers. 
+
 
 # How the computer functions
 Ex: I click on the icon of the application called **Firefox**
