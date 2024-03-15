@@ -3,6 +3,10 @@
   - *-bit data
   - Bit and Byte
   - Decimal Prefix and Binary Prefix (Kilo vs Kibi)
+2. [Cycle](#cycle)
+  - Clock and Bus cycle
+  - Machine cycle
+  - Instruction cycle
 
 # Bit
 ## *-bit data
@@ -35,3 +39,38 @@ Ex: 16-bit data
   + kilo: 10^3 - kibi: 1024^1
   + mega: 10^6 - mebi: 1024^2
   + giga: 10^9 - gibi: 1024^3 
+
+# Cycle
+
+Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle. 
+
+- The CPU will refer to its clock speed as the amount of **computation cycles** it can perform per second - a single computation or arithmetic operation (addition, substraction, multiplication and division).
+- A memory module (RAM stick) will refer to its clock speed as the amount of **memory cycles** it can perform per second - A simple read or write operation to memory. 
+- You can call "Computation cycle of the CPU" as "CPU clock cycle" and "Memory cycle of the RAM modules" as "RAM clock cycle". 
+
+## Clock cycle and Bus cycle
+- A computer uses a clock. The frequency of this clock indicates how many (Giga/Mega/Kilo) cycles per second that the clock wave changes. This is the basis of any cycle for the computer. This can be considered a 'clock cycle'.
+
+Ex: A CPU poses a clock speed of 5 GHz, which means 5 x 10^9 cycles per second. 
+
+- The bus cycle is the cycle or time required to to make a single read or write transaction between the CPU and an external device such as external memory. 
+
+Ex:
+
+Question: Consider a 32 – bit microprocessor, with a 16 – bit external data bus, driven by an 8 MHz input clock. Assume that this microprocessor has a bus cycle whose minimum duration equals four input clock cycles. What is the maximum data transfer rate for this microprocessor?
+
+Answer: 
+- In a 32-bit microprocessor, with a 16-bit external data bus, data transferred per bus cycle = 2B (2 Bytes)
+- Minimum bus cycle = 4 clock cycles.
+- Maximum bus cycle rate = 8 MHz / 4 = 2 Mb/sec
+- Data transfer rate = bus cycle rate * data per bus cycle = 2 Mb * 2 = 4 * 10^6 Bytes/sec.
+
+## Machine cycle
+The amount of cycles needed to do either a fetch, read or write operation. The read or write may be more than a single bus cycle if the transaction between the CPU and memory is longer than the data width fetched or written. 
+
+Ex: On an 8080 machine, the data width is 8 bits. If the CPU needs to fetch or write 16 bits of data, that will require two bus cycles.
+
+## Instruction cycle
+The amount of machine cycles needed to complete an instruction. This varies depending on the instruction. 
+
+Ex:  Some instructions after fetching them from memory need to fetch more data to complete the instruction, some need to write data at the end of the instruction cycle, some instructions don't do much at all, like the NOP, which basically fetches the instruction and does nothing for one machine cycle.
