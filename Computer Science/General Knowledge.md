@@ -1,4 +1,5 @@
 # Table of Contents
+1. [Minor technical terms](#minor-technical-terms)
 1. [Bit](#bit)
   - *-bit data
   - Bit and Byte
@@ -7,6 +8,19 @@
   - Clock and Bus cycle
   - Machine cycle
   - Instruction cycle
+
+# Minor technical terms
+## Word
+A word, in the majority of architectures, is the largest piece of data that can be transferred to and from the working memory in a single operation. 
+- The largest possible address size, used to designate a location in memory, is typically called a hardware word.
+
+<details>
+  <summary>If a CPU has 16-bit address bus and 8-bit words, how much memory can it address?</summary>
+  <br>
+  Ref: https://superuser.com/questions/1216428/if-a-cpu-has-a-16-bit-address-bus-and-8-bit-words-how-much-memory-can-it-addres
+
+  So, your CPU will be able to address 64KB (2^16) but will only be able to transfer in a single operation 8 bits.
+</details>
 
 # Bit
 ## *-bit data
@@ -48,6 +62,15 @@ Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle.
 - A memory module (RAM stick) will refer to its clock speed as the amount of **memory cycles** it can perform per second - A simple read or write operation to memory. 
 - You can call "Computation cycle of the CPU" as "CPU clock cycle" and "Memory cycle of the RAM modules" as "RAM clock cycle". 
 
+<details>
+  <summary>Consider a 32 – bit microprocessor, with a 16 – bit external data bus, driven by an 8 MHz input clock. Assume that this microprocessor has a bus cycle whose minimum duration equals four input clock cycles. What is the maximum data transfer rate for this microprocessor?</summary>
+  <br>
+- In a 32-bit microprocessor, with a 16-bit external data bus, data transferred per bus cycle = 2B (2 Bytes)
+- Minimum bus cycle = 4 clock cycles.
+- Maximum bus cycle rate = 8 MHz / 4 = 2 Mb/sec
+- Data transfer rate = bus cycle rate * data per bus cycle = 2 Mb * 2 = 4 * 10^6 Bytes/sec.
+</details>
+
 ## Clock cycle and Bus cycle
 - A computer uses a clock. The frequency of this clock indicates how many (Giga/Mega/Kilo) cycles per second that the clock wave changes. This is the basis of any cycle for the computer. This can be considered a 'clock cycle'.
 
@@ -55,15 +78,6 @@ Ex: A CPU poses a clock speed of 5 GHz, which means 5 x 10^9 cycles per second.
 
 - The bus cycle is the cycle or time required to to make a single read or write transaction between the CPU and an external device such as external memory. 
 
-Ex:
-
-Question: Consider a 32 – bit microprocessor, with a 16 – bit external data bus, driven by an 8 MHz input clock. Assume that this microprocessor has a bus cycle whose minimum duration equals four input clock cycles. What is the maximum data transfer rate for this microprocessor?
-
-Answer: 
-- In a 32-bit microprocessor, with a 16-bit external data bus, data transferred per bus cycle = 2B (2 Bytes)
-- Minimum bus cycle = 4 clock cycles.
-- Maximum bus cycle rate = 8 MHz / 4 = 2 Mb/sec
-- Data transfer rate = bus cycle rate * data per bus cycle = 2 Mb * 2 = 4 * 10^6 Bytes/sec.
 
 ## Machine cycle
 The amount of cycles needed to do either a fetch, read or write operation. The read or write may be more than a single bus cycle if the transaction between the CPU and memory is longer than the data width fetched or written. 
