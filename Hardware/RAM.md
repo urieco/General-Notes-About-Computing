@@ -39,7 +39,7 @@
 ## RAM Bus Speed
 - The frequency at which the RAM operates, typically measured in MHz (megahertz) or GHz (gigahertz). This frequency indicates how quickly the RAM can transfer data. It can also be referred to as **"transfer rate"**.
 
-![DDR4 RAM Bus Speed](Images/Motherboard%2022%20DDR4%20RAM%20Speed.png)
+![DDR4 RAM Bus Speed](Images/RAM%202.1%20DDR4%20RAM%20Speed.png)
 
 Ex: 
 - Memory speed (Friendly name) DDR4-4400 --> 4400 MHz --> 4.4 GHz --> 1 **memory cycle** per (1 / (4.4 x 10^9)) of a second.

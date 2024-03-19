@@ -17,10 +17,10 @@ Ref: [How does Computer Hardware Work?](https://www.youtube.com/watch?v=d86ws7mQ
 - The **Die** is mounted on a **printed circuit board**.
 - **Printed circuit board** distributes the 1,200 connection points to landing pads that interface with the landing grid array on the motherboard.
 
-![The structure of a CPU](Images/Motherboard%2023%20The%20structure%20of%20a%20CPU.png)
+![The structure of a CPU](Images/CPU%201%20The%20structure%20of%20a%20CPU.png)
 - 10 cores where programs and instructions are run.
 
-![Shared L3 Cache, Ring Interconnect and Integrated Graphics Processor](Images/Motherboard%2024%20Shared%20L3%20Cache,%20Ring%20Interconnect%20and%20Integrated%20Graphics%20Processor.png)
+![Shared L3 Cache, Ring Interconnect and Integrated Graphics Processor](Images/CPU%202%20Shared%20L3%20Cache,%20Ring%20Interconnect%20and%20Integrated%20Graphics%20Processor.png)
 
 ## Clock Speed (GHz) and Cycle
 Refer to: [Cycle](../Computer%20Science/General%20Knowledge.md#cycle)
