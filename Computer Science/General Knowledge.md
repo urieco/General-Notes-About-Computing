@@ -1,13 +1,20 @@
 # Table of Contents
-1. [Minor technical terms](#minor-technical-terms)
-1. [Bit](#bit)
+- [Minor technical terms](#minor-technical-terms)
+  - Word
+  - Values
+  - Numbers
+    + Arithmetic and operators
+  - Strings
+
+- [Bit](#bit)
   - *-bit data
   - Bit and Byte
   - Decimal Prefix and Binary Prefix (Kilo vs Kibi)
-2. [Cycle](#cycle)
+- [Cycle](#cycle)
   - Clock and Bus cycle
   - Machine cycle
   - Instruction cycle
+- [Programming](#programming)
 
 # Minor technical terms
 ## Word
@@ -22,7 +29,42 @@ A word, in the majority of architectures, is the largest piece of data that can 
   So, your CPU will be able to address 64KB (2^16) but will only be able to transfer in a single operation 8 bits.
 </details>
 
+## Values
+- A typical modern computer has more than 30 billion bits in its volatile data storage (working memory). Non-volatile storage (hard disk) tends to have yet a few orders of magnitude more. 
+- To be able to work with such quantities of bits without getting lost, we must separate them into chunks that represent pieces of information. Those chunks are usually called **values** (in JavaScript for example). 
+- Every value has a type that determines its role. Some are numbers, pieces of text, some are functions, and so on. 
+- To refer to a value, you must invoke its name. 
+
+## Numbers
+- Numbers are numeric values. 
+- JavaScript uses a fixed number of bits, 64 of them, to store a single number value. There are so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent 2^64 different numbers. 
+- Computer memory used to be smaller so it’s easier to **overflow** back then. 
+- However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store only 9 quadrillion (15 zeros). 
+- Whole numbers (**integers**) calculation, under 9 quadrillion, is always precise. Not with fractional numbers though because of floating point. 
+> 0.0001 + 0.0002 = 0.00030000000000000003
+
+### Arithmetic and operators
+Ex: (100 + 34) * 11
+
+- The + and * symbols are called "operators".
+- Also there are subtraction and division operator (-, /).
+- Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
+- Remainder operator: 5 % 4 = 1. It is also referred as "modulo".
+
+## Strings
+"This is a string".
+
 # Bit
+- Inside the computer's world, there is only **data**. All this data is stored as long sequences of **bits**. 
+- Bits are any kind of two-valued things, usually 0 and 1. 
+
+Sequence | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1
+---|---|---|---|---|---|---|---|---|
+**Bit** | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+
+Ex: 13 = 00001101
+
+
 ## *-bit data
 Ex: 16-bit data
 
@@ -48,7 +90,7 @@ Ex: 16-bit data
 - Both are units of **digital information storage**
 - Kilobyte: More familiar term, 1 kilobyte = 1,000 bytes of data, more human-friendly, used in everyday language and in marketing materials (larger). 
 - Kibibyte (KiB): Newer term (1998) that represents 1,024 bytes of data, based on binary multiples, **which is displayed on the File Explorer**. 
-![Table of Decimal Prefix and Binary Prefix](Images/CS%201%20Decimal%20and%20Binary%20Prefix.png)
+![Table of Decimal Prefix and Binary Prefix](Images/General%201%20Decimal%20and%20Binary%20Prefix.png)
 - Other method:
   + kilo: 10^3 - kibi: 1024^1
   + mega: 10^6 - mebi: 1024^2
@@ -88,3 +130,11 @@ Ex: On an 8080 machine, the data width is 8 bits. If the CPU needs to fetch or w
 The amount of machine cycles needed to complete an instruction. This varies depending on the instruction. 
 
 Ex:  Some instructions after fetching them from memory need to fetch more data to complete the instruction, some need to write data at the end of the instruction cycle, some instructions don't do much at all, like the NOP, which basically fetches the instruction and does nothing for one machine cycle.
+
+# Programming
+*Programming* is the act of constructing a *program* – a set of precise instructions telling the computer what to do. 
+
+Computers themselves can do only stupidly straightforward things at an incredibly high speed. 
+The art of programming is the skill of controlling complexity. 
+
+Why language matters? The same program can be expressed in both long and short, unreadable and readable ways. 
