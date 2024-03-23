@@ -37,11 +37,36 @@ A word, in the majority of architectures, is the largest piece of data that can 
 
 ## Numbers
 - Numbers are numeric values. 
-- JavaScript uses a fixed number of bits, 64 of them, to store a single number value. There are so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent 2^64 different numbers. 
-- Computer memory used to be smaller so it’s easier to **overflow** back then. 
-- However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store only 9 quadrillion (15 zeros). 
-- Whole numbers (**integers**) calculation, under 9 quadrillion, is always precise. Not with fractional numbers though because of floating point. 
-> 0.0001 + 0.0002 = 0.00030000000000000003
+- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent **2^64** different numbers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 zeros) numbers**.
+  - Computer memory used to be smaller so it’s easier to **overflow** back then. 
+  - However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store fewer amount of digits, roughly **9 quarillion (15 zeros) numbers**.
+    - Since binary numbers can have only two symbols, either 0 or 1 for each position or bit, so it is not possible to add minus or plus symbols in front of a binary number. We represent negative binary numbers using a minus symbol in front of them. **In computer number representation, these numbers can be distinguishable with the help of an extra bit or flag called sign bit or sign flag in the Binary number representation system for signed numbers**. This extra bit is called **sign bit or sign flag** which has a value of sign bit is 0 for positive numbers and 1 for negative binary numbers. Ref: [geeksforgeeks.org](https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/).
+    ![Sign bit/flag](Images/General%200.1%20Sign%20bit.png)
+    Ex: The first bit is '1' = Negative number. '0' = Positive number.
+    - Decimal point: The decimal point location is implicit based on the data type and intepreation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Signifcand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
+    
+    Ex: The number 3.14 can be represented in **IEEE 754** single-precision format: **0-10000000-10010001111010111000011**. Ref: [h-schmidt.net/FloatConverter/IEEE654](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+    - Sign: 0 = +1 (Positive)
+    - Exponent: 10000000 = 128 = 2^1
+    - Mantissa: 10010001111010111000011 = 4781507 = 1 + 0.5700000524520874
+    - (1 + 0.5700000524520874) * (2^1) * (+1) = 3.1400001049041748 (**Computer floating problem**)
+    - Error due to conversion: 0.0000001049041748046875
+<details>
+  <summary>What range of numbers can be represented in a 16-, 32- and 64-bit IEEE-754 systems?</summary>
+  <br>
+  Ref: https://stackoverflow.com/questions/872544/what-range-of-numbers-can-be-represented-in-a-16-32-and-64-bit-ieee-754-syste 
+
+  For a given IEEE-754 floating point number X, if ```2^E <= abs(X) < 2^(E+1)``` then the distance from X to the next largest representable floating point number (epsilon) is:
+  ```
+  epsilon = 2^(E-52)    % For a 64-bit float (double precision)
+  epsilon = 2^(E-23)    % For a 32-bit float (single precision)
+  epsilon = 2^(E-10)    % For a 16-bit float (half precision)
+  ```
+  In short: 
+  64-bit (double-precision): 2^53 = 9 quarillion 
+</details>
+
+- Whole numbers (**integers**) calculation, under 9 quadrillion, is always precise. Not with fractional numbers though because of floating point. Ex: ```0.0001 + 0.0002 = 0.00030000000000000003```
 
 ### Arithmetic and operators
 Ex: (100 + 34) * 11
