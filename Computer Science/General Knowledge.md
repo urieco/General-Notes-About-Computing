@@ -2,7 +2,8 @@
 - [Minor technical terms](#minor-technical-terms)
   - Word
   - Values
-  - Numbers
+  - Numbers: Sign, Exponent and Mantissa
+    + Floating-point number problem
     + Arithmetic and operators
   - Strings
 
@@ -67,6 +68,18 @@ A word, in the majority of architectures, is the largest piece of data that can 
 </details>
 
 - Whole numbers (**integers**) calculation, under 9 quadrillion, is always precise. Not with fractional numbers though because of floating point. Ex: ```0.0001 + 0.0002 = 0.00030000000000000003```
+
+### The Floating-point number problem
+Why ```0.1 + 0.2 = 0.30000000...1 ?```
+
+- Human does calculation in Base-10 --> ```0.1 + 0.2 = 0.3```
+  + Recurring numbers happen: ```1/3 = 0.3333333...```. However, it can still be solved: ```1/3 + 1/3 + 1/3 = 1```. 
+  + If we only have a limited amount of memory for the amount of decimals behind the radix point (decimal point), the math calculation would be like this: ```0.333 + 0.333 + 0.333 = 0.999```.
+- Computers do calculation in Base-2. All fractional numbers, even the ones that don't result in recurring number, can't be converted to a Base-2 that easily. 
+![You can't convert certain decimals to base-2](Images/General%200.2%20You%20can't%20convert%20certain%20decimal%20to%20base-2.png)
+  - To computers, ```0.1 = 0.0001100110011...``` (limited memory).
+  - At some points, the recurring has to be cut off, to produce a result for the calculation. 
+  - It is similar to ```0.333 + 0.333 + 0.333 = 0.999```. The computer doesn't understand recurring like we do. 
 
 ### Arithmetic and operators
 Ex: (100 + 34) * 11
