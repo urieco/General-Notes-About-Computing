@@ -2,10 +2,10 @@
 - [Minor technical terms](#minor-technical-terms)
   - Word
   - Values
-  - Numbers: Sign, Exponent and Mantissa
+  - [Numbers](#numbers): Sign, Exponent and Mantissa
     + Floating-point number problem
     + Arithmetic and operators
-  - Strings
+  - [Strings](#strings)
 
 - [Bit](#bit)
   - *-bit data
@@ -90,7 +90,22 @@ Ex: (100 + 34) * 11
 - Remainder operator: 5 % 4 = 1. It is also referred as "modulo".
 
 ## Strings
-"This is a string".
+- "This is a string".
+- A string is traditionally a sequence of characters, either as a literal constant or as some kind of variable. The latter may allow its elements to be mutated and the length changed, or it may be fixed (after creation). 
+- In programming languages, it's a **data type** used to store and manipulate text data. 
+- Computers can't understand text directly. They store characters using a character encoding scheme, which assigns a unique binary code (a series of 0s and 1s) to each character. A common encoding scheme is **ASCII (American Standard Code for Information Interchange)**, which uses **7 bits** for most characters.
+- A string is often implemented as an **array data structrue of bytes** (or [words](#word)) that stores a sequence of elements, typically characters, using some character encoding.
+- Depending on the programming language and precise data type used, a variable declared to be a string may either cause storage in memory to be **statically allocated (C, Java...)** for a predetermined maximum length or employ **dynamic allocation (JavaScript, PHP, Ruby)** to allow it to hold variable number of elements. 
+
+Feature | Statically Allocated Strings | Dynamically Allocated Strings
+---|---|---|
+Memory Allocation | Compile time  | Runtime
+Memory Size       | Fixed size based on declaration | Variable size based on the content
+Access Speed      | Faster        | Slower (potential reallocation)
+Memory Efficiency | Less efficient (potential waste)| More efficient
+Example Languages | C, Java (primitive String) | C++ (std::string), Python (mixed, short strings), JavaScript
+
+- When a string appears literally in source code, it is known as a string literal or an anonymous string. 
 
 # Bit
 - Inside the computer's world, there is only **data**. All this data is stored as long sequences of **bits**. 
@@ -101,7 +116,6 @@ Sequence | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1
 **Bit** | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
 
 Ex: 13 = 00001101
-
 
 ## *-bit data
 Ex: 16-bit data
@@ -135,7 +149,6 @@ Ex: 16-bit data
   + giga: 10^9 - gibi: 1024^3 
 
 # Cycle
-
 Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle. 
 
 - The CPU will refer to its clock speed as the amount of **computation cycles** it can perform per second - a single computation or arithmetic operation (addition, substraction, multiplication and division).
