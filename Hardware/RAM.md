@@ -12,18 +12,26 @@
 
 # RAM
 ## Types
-**DIMM** (Dual In-Line Memory), a **generic term** used to describe a type of memory module that consists of integrated circuits (ICs) mounted on a small circuit board. DIMMs are used to provide random access memory (RAM) in computers, servers, and other electronic devices: 
-- **SO-DIMM** (Small Outline Dual In-Line Memory Module): Designed for space-constraints. It can also be configured to use less power. Used primarily in laptops, notebooks, and small form factor computers where space is limited. 
-- **Micro-DIMM**: Even smaller than **SO-DIMM**. It is used in ultra-compact devices such as tablets, handheld devices, and embedded systems where space is extremely limited. 
+**DIMM** (Dual In-Line Memory), a **generic term** used to describe a type of memory module that consists of integrated circuits (ICs) mounted on a small circuit board. DIMMs are used to provide random access memory (RAM) in computers, servers, and other electronic devices:
 
-- **UDIMM** (Unbuffered DIMM): The most common type of memory module used in consumer-grade desktop and server systems. It is **unbuffered**, meaning that **it does not contain additional memory buffers or registers between the memory chips and the memory controller on the motherboard.**
-- **RDIMM** (Registered DIMM): A **buffer or register** is a small amount of memory integrated into the DIMM module itself. Its primary function is to act as intermediary between the memory chips on the DIMM and the memory controller on the motherboard. It helps  improve the stability and reliability of the memory subsystem by isolating the memory chips from the electrical load of the memory controller. Support larger memory configurations by reducing the electrical load on the memory controller. 
+- **SO-DIMM** (Small Outline Dual In-Line Memory Module): Designed for space-constraints. It can also be configured to use less power. Used primarily in laptops, notebooks, and small form factor computers where space is limited. There aren't any performance impacts in SO-DIMM, compared to the DIMM module, besides increased thermal constraints and physical capacity limits inherent to the smaller form factor.  
+
+- **Micro-DIMM**: Even smaller than **SO-DIMM**. It is used in ultra-compact devices such as tablets, handheld devices, and embedded systems where space is extremely limited. It is also used in printers and other non-memory-invasive devices. MicroDIMMs have only been iterated to DDR2. Ref: [itechtics.com](https://www.itechtics.com/dimm-sodimm-microdimm/)
+
+- **UDIMM** (Unbuffered DIMM): The most common type of memory module used in consumer-grade desktop and server systems. It is **unbuffered**, meaning that **it does not contain additional memory buffers or registers between the memory chips and the memory controller on the motherboard**. It is considered to be less stable but cheaper than **RDIMM**.
+
+- **RDIMM** (Registered DIMM): A **buffer or register** is a small amount of memory integrated into the DIMM module itself. Its primary function is to act as intermediary between the memory chips on the DIMM and the memory controller on the motherboard. It helps improve the stability and reliability of the memory subsystem by isolating the memory chips from the electrical load of the memory controller. Support larger memory configurations by reducing the electrical load on the memory controller. 
+  + It is often seen in server machines and applications that require stability. 
+
 - **LRDIMM** (Load-Reduced DIMM): LRDIMMS are similar to RDIMMS, but include additional buffering to reduce electrical load and improve memory capacity. They are commonly used in high-density server configurations and memory-intensive applications.
 
 **Other (outdated) types of memory module:**
 - **SIMM** (Single In-line Memory Module): Older type. Unlike **DIMMs**, which have separate electrical contacts on both sides of the module, SIMMs have a single row of electrical contacts on one side.
+
 - **RIMM** (Rambus In-line Memory Module): Designed for Rambus DRAM (RDRAM). 1990s - Early 2000s. They have a different physical and electrical design compared to DIMMs and are not compatible with standard DDR or DDR2 memory technologies.
+
 - **FB-DIMM** (Fully Buffered DIMM):  FB-DIMM is a specialized type of DIMM that incorporates a buffering or hub component to reduce electrical load and improve memory capacity. FB-DIMMs were used in some high-performance computing systems and servers but have largely been replaced by other memory technologies due to their higher power consumption and complexity. 
+
 - **NVDIMM** (Non-Volatile Dual In-line Memory Module): Similar to a hard drive or SSD in the sense that it provides persistent storage for data even when power is removed from the system. 
 
 ## RAM Kit
@@ -37,20 +45,22 @@
 ![Specifications of T-Create Expert 32GB Kit (2 x 16GB) DDR5-6000 PC5-48000 CL30 Dual Channel Desktop Memory Kit](Images/RAM%202%20Memory%20kit%20specification%20example.png)
 
 ## RAM Bus Speed
-- The frequency at which the RAM operates, typically measured in MHz (megahertz) or GHz (gigahertz). This frequency indicates how quickly the RAM can transfer data. It can also be referred to as **"transfer rate"**.
+- The frequency at which the RAM operates, typically measured in MHz (megahertz) or GHz (gigahertz). This frequency indicates how quickly the RAM can transfer data. It can also be referred to as **"data rate"**.
+- It can also be referred to by **Tested Speed** or **Maximum data rate** measured in mega-transfers per second (MT/s). 
 
 ![DDR4 RAM Bus Speed](Images/RAM%202.1%20DDR4%20RAM%20Speed.png)
 
-Ex: 
-- Memory speed (Friendly name) DDR4-4400 --> 4400 MHz --> 4.4 GHz --> 1 **memory cycle** per (1 / (4.4 x 10^9)) of a second.
-- (Industry name) PC4-35200 --> 35200 MB/s
+Ex: **DDR4-4400 (PC4-35200)**
+- Memory speed (Friendly name): DDR4-4400 --> **Data Rate**: 4400 MHz (or 4.4 GHz) --> 1 **memory cycle** per (1 / (4.4 x 10^9)) of a second. It can be inferred as **4400 MT/s**
+- Industry name: PC4-35200 --> 35,200 MB/s (**Peak transfer rate**).
+- To calculate the theoretical maximum data rate: ```4400 MT per second * 64 bits (maximum data transfer per cycle by 64-bit systems) = 281,600 bits per second = ``` **35,200 MB/s**.
 
 ## Generations
-- Each generation of RAM **increases speed and frequency while decreasing power consumption**. Since computer hardware is all connected and interdependent, this can lead to speed increases in other components, too, which is why upgrading your memory is a great way to fix a slow computer. 
+- Each generation of RAM **increases speed and frequency while decreasing power consumption**. 
 - Memory is not compatible across all motherboards. Generally speaking, motherboards are built to support only one type of memory. **So, you can't mix and match SDRAM, DDR, DDR2, DDR3, DDR4, or DDR5 memory on the same motherboard, as they won't function. They may not even fit in the same sockets.**
 - However, RAM systems are industry-wise standardized, so you can choose whichever manufacturer. 
-- Data Rate (MT/s): Numbers of mega-transfers per second. Ex: 3200MT/s = 3200 x 10^6 transfers per second. 
-- Transfer Rate (GB/s): Amount of data that can be transferred per second. Ex: 38.4GB/s.
+- **Data Rate (MT/s)**: Numbers of mega-transfers per second. Ex: 3200MT/s = 3200 x 10^6 transfers per second. 
+- **Transfer Rate (MB/s)**: Amount of data that can be transferred per second. Ex: 35,200 MB/s.
 
 --> You can think that Data Rate refers to how fast the RAM module can transfer data and Transfer Rate refers to how much the module can transfer data. 
 
@@ -93,17 +103,19 @@ Considerations:
 - RAM slots are physical slots on the motherboard where you insert the RAM modules.
 - The memory channel refers to the **logical pathways** or interfaces through which data is transferred between the RAM modules and the CPU's memory controller. 
   + The physical pathways through which data travels on the motherboard are typically referred to as a bus lines or traces - conductive pathways etched onto the circuit board. 
-- Memory channel is 64-bit wide in modern systems. **The memory channel for earlier mainboard is not always 64-bit wide**. This refers to the amount of data that can be transferred at once, and it's typically measured in bits. 
+- Memory channel is 64-bit wide in modern systems. **The memory channel for earlier mainboard is not always 64-bit wide**. This refers to the amount of data that can be transferred in one cycle, and it's typically measured in bits. 
 - This limitation is primarily determined by the physical design of the memory controller and the memory modules. 
-- It is also due to the width provding a good balance between data transfer speed and complexity (cost of implementation). **A memory channel can be designed to have more than 64-bit width**. Having a wider memory channel, such as 128-bit or 256-bit, could potentially increase the data transfer rate even further. However, this would require more complex memory controller designs and could significantly increase manufacturing costs. Additionally, the benefits of wider memory channels may be limited by other factors, such as the speed of the memory modules themselves and the overall architecture of the system.
+- The width also provides a good balance between data transfer speed and complexity (cost of implementation). **A memory channel can be designed to have more than 64-bit width**. Having a wider memory channel, such as 128-bit or 256-bit, could potentially increase the data transfer rate even further. However, this would require more complex memory controller designs and could significantly increase manufacturing costs. Additionally, the benefits of wider memory channels may be limited by other factors, such as the speed of the memory modules themselves and the overall architecture of the system.
 
 Ex: A typical ATX motherboard has four RAM slots and it supports **dual-channel configurations**. The RAM slots are arranged in pairs, color-coded accordingly. For each pair, two slots of RAM connects to **two 64-bit interfaces (memory channels)** - The channels are NOT connected to each other. Rather, they operate in parallel, allowing the system to read from or write to both modules simultaneously under the right conditions. 
 
---> Each module will be able to send or receive data in 64-bit chunks, the memory controller will alternate between accessing each module. So, during each **memory cycle**, 64 bits of data from each RAM module can be transferred to or from the memory controller. 
+- Each module will be able to send or receive data in 64-bit chunks, the memory controller    will alternate between accessing each module. So, during each **memory cycle**, 64 bits of data from each RAM module can be transferred to or from the memory controller (totaling up to 128 bits of data from two modules per cycle). 
 
-In quad-channel configurations, often found in high-end workstations and servers, there are four slots connected to four separate channels. 
+- In quad-channel configurations, often found in high-end workstations and servers, there are four slots connected to four separate channels. 
 
-==> Multiple channels running parallel is similar to how Parallel BUS works (see also [Parallel BUS](#serial-and-parallel-bus)). The data is divided into smaller chunks, which are then sent down separate paths or channels. This allows for more data to be transferred at the same time, increasing the overall throughput of the system. However, one of the challenges with a parallel bus is synchronizing the data between different lines. Rather than relying on precise timing between different lines, each memory channel operates independently, with its own clock signal. This can help to reduce the issues associated with skew, since the data on each channel is synchronized locally.
+==> Multiple channels running parallel is similar to [how Parallel BUS works](#serial-and-parallel-bus). The data is divided into smaller chunks, which are then sent down separate paths or channels. This allows for more data to be transferred at the same time, increasing the overall throughput of the system. However, one of the challenges with a parallel bus is synchronizing the data between different lines. Rather than relying on precise timing between different lines, each memory channel operates independently, with its own clock signal. This can help to reduce the issues associated with skew[^1], since the data on each channel is synchronized locally.
+
+- [^1]: Skew is the phenomenon that can occur in a parallel bus architecture, where the data on different channels becomes misaligned due to the differences in the propagation delay of the signals. This can result in errors or corruption of the data, since the different chunks may not be correctly aligned when they are combined. 
 
 ==> You can perceive that each channel is utilizing a Serial BUS approach. In modern systems, the memory interface typically uses a high-speed serial communication protocol, such as DDR (Double Data Rate) SDRAM, which allows for fast and efficient data transfer over a single line or differential pair. Each memory channel operates independently, with its own dedicated interface and clock signal, allowing it to transfer data to and from the memory controller independently of the other channels. This means that one channel can be transferring data to the memory controller while another channel is receiving data from a different source, such as the CPU or an input/output peripheral.
 
