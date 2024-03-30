@@ -26,7 +26,7 @@ Ref: [How does Computer Hardware Work?](https://www.youtube.com/watch?v=d86ws7mQ
 Refer to: [Cycle](../Computer%20Science/General%20Knowledge.md#cycle)
 A cycle can be called a clock cycle or CPU cycle. 
 
-In computing, a **computation cycle** typically refers to **one complete execution of a basic operation by the CPU** such as fetching an instruction from memory, performing a calculation, or writing data to memory - how it finishes processing one [32-bit or 64-bit sequence](../Computer%20Science/General%20Knowledge.md#bit) (For 32-bit or 64-bit architectures). It is **different from a memory cycle** of the RAM with BUS speed denoted by unit like DDR4-4400, in which 4400 is usually 4400 MHz - dealing with operations such as reading and writing data to a particular memory location.
+In computing, a **computation cycle** typically refers to **one complete execution of a basic operation by the CPU** such as fetching an instruction from memory, performing a calculation, or writing data to memory - how it finishes processing one [32-bit or 64-bit sequence](../Computer%20Science/General%20Knowledge.md#bit) (For 32-bit or 64-bit architectures). It is **different from a memory cycle** of the RAM with BUS speed denoted by a unit like DDR4-4400, in which 4400 is usually 4400 MHz - dealing with operations such as reading and writing data to a particular memory location.
 
 Ex: A CPU's clock speed is **2.7 GHz** → It can execute **2.7 billion (10<sup>6</sup>) cycles per second**. Each cycle corresponds to one basic operation that the CPU can perform. In the context of a 2.7 GHz CPU, **one cycle occurs every 1 / (2.7 x 10<sup>9</sup>) seconds = 0.370 nanoseconds**.
 
@@ -46,4 +46,4 @@ Compatibility  | Only 32-bit applications | 32-bit AND 64-bit applications | Som
 Resource Usage | Consume less resource   | Consume more due to larger data structures and pointers. 
 
 ## CPU Registers
-The registers are an important component of the processor's micro-architecture. The registers are the high speed memory built into the CPU chip for quick data access. It is also the fastest memory in the memory hierarcy. 
+The registers are an important component of the processor's micro-architecture. The registers are the high speed memory built into the CPU chip for quick data access. It is also the fastest memory in the memory hierarchy. 

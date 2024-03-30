@@ -92,19 +92,19 @@ Ref: [ecomputernotes.com](https://ecomputernotes.com/fundamental/introduction-to
   Generally the pointer size also follows the register size but the physical address bus width can be bigger or smaller than the register size. Some examples:
   - Most 8-bit CPUs could address at least 64k of memory with a 16-bit address bus.
   - The 8086 was 16-bit but had a 20-bit address bus to allow more addressable RAM.
-  - The original AMD Opteron is 64-bit but the physical address bus is 40-bits (internally) to simplify the design of the memory subsystem, since the a full 64-bits is too large to be utilized. Modern 64-bit AMD CPUs are 48-bits.
+  - The original AMD Opteron is 64-bit but the physical address bus is 40-bits (internally) to simplify the design of the memory subsystem, since a full 64-bits is too large to be utilized. Modern 64-bit AMD CPUs are 48-bits.
 
   **It's best to recognize that the bitness of a CPU is entirely architectural and mostly just from a software perspective. It doesn't have much to do with physical design anymore.**
 </details> 
 
 - An 8-bit bus carries data along 8 parallel lines. A 16-bit bus, also called **ISA (Industry Standard Architecture)**, carries data along 16 lines. A 32-bit bus, classified as **EISA (Enhanced Industry Standard Architecture)** or **MCA (Micro Channel Architecture)**, can carry data along 32 lines.
   + 8-bit bus: 8 lines solely for data transfering. 
-  + **Separate sets of lines** (buses) designated to be address buses and control buses. 
+  + **Separate sets of lines** (buses) designated to be addressed buses and control buses. 
 
   Ex: Scenario: A motherboard is advertised to  8-bit 
 
 - A bus transfers electrical signals from one place to another. An actual bus appears as an endless amount of [etched copper circuits](#lines--wires--traces). on the motherboard's surface. The bus connected to the CPU through the **BUS Interface Unit**. 
-  + Data travels between the CPU and memory along the data bus. The location (address) of that data is carried along the address bus. A clock signal which keeps everything in synch travels along the control bus.
+  + Data travels between the CPU and memory along the data bus. The location (address) of that data is carried along the address bus. A clock signal which keeps everything in sync, travels along the control bus.
   + The clock acts like a traffic light for all the PC’s components; the "green light" goes on with each clock tick. A PC’s clock can "tick" anywhere from 20 to 65 million times per second, which makes it seem like a computer is really fast. But since **each task (such as saving a file) is made up of several programmed instructions**, and each of those instructions takes several clock cycles to carry out, a person sometimes has to sit and wait for the computer to catch up.
 
 

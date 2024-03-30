@@ -38,13 +38,13 @@ A word, in the majority of architectures, is the largest piece of data that can 
 
 ## Numbers
 - Numbers are numeric values. 
-- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent **2<sup>64</sup>** different whole numbers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 zeros) numbers**.
+- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent **2<sup>64</sup>** different whole numbers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 * 10<sup>18</sup>) numbers**.
   - Computer memory used to be smaller so it’s easier to **overflow** back then. 
-  - However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store fewer amount of digits, roughly **9 quarillion (15 zeros) numbers**.
+  - However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store fewer amount of digits, roughly **9 quadrillion (15 zeros) numbers**.
     - Since binary numbers can have only two symbols, either 0 or 1 for each position or bit, so it is not possible to add minus or plus symbols in front of a binary number. We represent negative binary numbers using a minus symbol in front of them. **In computer number representation, these numbers can be distinguishable with the help of an extra bit or flag called sign bit or sign flag in the Binary number representation system for signed numbers**. This extra bit is called **sign bit or sign flag** which has a value of sign bit is 0 for positive numbers and 1 for negative binary numbers. Ref: [geeksforgeeks.org](https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/).
     ![Sign bit/flag](Images/General%200.1%20Sign%20bit.png)
     Ex: The first bit is '1' = Negative number. '0' = Positive number.
-    - Decimal point: The decimal point location is implicit based on the data type and intepreation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Signifcand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
+    - Decimal point: The decimal point location is implicit based on the data type and intepretation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Significand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
     
     Ex: The number 3.14 can be represented in **IEEE 754** single-precision format: **0-10000000-10010001111010111000011**. Ref: [h-schmidt.net/FloatConverter/IEEE654](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
     - Sign: 0 = +1 (Positive)
@@ -64,7 +64,7 @@ A word, in the majority of architectures, is the largest piece of data that can 
   epsilon = 2^(E-10)    % For a 16-bit float (half precision)
   ```
   In short: 
-  64-bit (double-precision): 2<sup>53</sup> = 9 quarillion 
+  64-bit (double-precision): 2<sup>53</sup> = 9 quadrillion 
 </details>
 
 - Whole numbers (**integers**) calculation, under 9 quadrillion, is always precise. Not with fractional numbers though because of floating point. Ex: ```0.0001 + 0.0002 = 0.00030000000000000003```
@@ -75,7 +75,7 @@ Why ```0.1 + 0.2 = 0.30000000...1 ?```
 - Human does calculation in Base-10 --> ```0.1 + 0.2 = 0.3```
   + Recurring numbers happen: ```1/3 = 0.3333333...```. However, it can still be solved: ```1/3 + 1/3 + 1/3 = 1```. 
   + If we only have a limited amount of memory for the amount of decimals behind the radix point (decimal point), the math calculation would be like this: ```0.333 + 0.333 + 0.333 = 0.999```.
-- Computers do calculation in Base-2. All fractional numbers, even the ones that don't result in recurring number, can't be converted to a Base-2 that easily. 
+- Computers do calculations in Base-2. All fractional numbers, even the ones that don't result in recurring numbers, can't be converted to a Base-2 that easily. 
 ![You can't convert certain decimals to base-2](Images/General%200.2%20You%20can't%20convert%20certain%20decimal%20to%20base-2.png)
   - To computers, ```0.1 = 0.0001100110011...``` (limited memory).
   - At some points, the recurring has to be cut off, to produce a result for the calculation. 
@@ -85,17 +85,19 @@ Why ```0.1 + 0.2 = 0.30000000...1 ?```
 Ex: (100 + 34) * 11
 
 - The + and * symbols are called "operators".
-- Also there are subtraction and division operator (-, /).
+- Also there are subtraction and division operators (-, /).
 - Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
-- Remainder operator: 5 % 4 = 1. It is also referred as "modulo".
+- Remainder operator: 5 % 4 = 1. It is also referred to as "modulo".
 
 ## Strings
 - "This is a string".
 - A string is traditionally a sequence of characters, either as a literal constant or as some kind of variable. The latter may allow its elements to be mutated and the length changed, or it may be fixed (after creation). 
 - In programming languages, it's a **data type** used to store and manipulate text data. 
 - Computers can't understand text directly. They store characters using a character encoding scheme, which assigns a unique binary code (a series of 0s and 1s) to each character. A common encoding scheme is **ASCII (American Standard Code for Information Interchange)**, which uses **7 bits** for most characters.
-- A string is often implemented as an **array data structrue of bytes** (or [words](#word)) that stores a sequence of elements, typically characters, using some character encoding.
-- Depending on the programming language and precise data type used, a variable declared to be a string may either cause storage in memory to be **statically allocated (C, Java...)** for a predetermined maximum length or employ **dynamic allocation (JavaScript, PHP, Ruby)** to allow it to hold variable number of elements. 
+- A string is often implemented as an **array data structure of bytes** (or [words](#word)) that stores a sequence of elements, typically characters, using some character encoding.
+  + Each character in the string is stored at a specific index in the array, allowing for easy access and manipulation of the string's individual characters. This array-based representation makes it possible to perform various string operations, such as concatenation, substring extraction, and modification. 
+  + Exceptions: Python, Ruby, Go, Rust, Swift... These languages have their own string representations that are not purely based on arrays of characters. Ex: Strings in Python, are represented as a sequence of Unicode code points, and they are not directly manipulated as arrays of characters. 
+- Depending on the programming language and precise data type used, a variable declared to be a string may either cause storage in memory to be **statically allocated (C, Java...)** for a predetermined maximum length or employ **dynamic allocation (JavaScript, PHP, Ruby)** to allow the string to grow or shrink as needed. 
 
 Feature | Statically Allocated Strings | Dynamically Allocated Strings
 ---|---|---|
@@ -152,7 +154,7 @@ Ex: 16-bit data
 # Cycle
 Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle. 
 
-- The CPU will refer to its clock speed as the amount of **computation cycles** it can perform per second - a single computation or arithmetic operation (addition, substraction, multiplication and division).
+- The CPU will refer to its clock speed as the amount of **computation cycles** it can perform per second - a single computation or arithmetic operation (addition, subtraction, multiplication and division).
 - A memory module (RAM stick) will refer to its clock speed as the amount of **memory cycles** it can perform per second - A simple read or write operation to memory. 
 - You can call "Computation cycle of the CPU" as "CPU clock cycle" and "Memory cycle of the RAM modules" as "RAM clock cycle". 
 
@@ -168,9 +170,9 @@ Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle.
 ## Clock cycle and Bus cycle
 - A computer uses a clock. The frequency of this clock indicates how many (Giga/Mega/Kilo) cycles per second that the clock wave changes. This is the basis of any cycle for the computer. This can be considered a 'clock cycle'.
 
-Ex: A CPU poses a clock speed of 5 GHz, which means 5 x 10<sup>9</sup> cycles per second. 
+Ex: A CPU poses a clock speed of 5 GHz, which means 5 * 10<sup>9</sup> cycles per second. 
 
-- The bus cycle is the cycle or time required to to make a single read or write transaction between the CPU and an external device such as external memory. 
+- The bus cycle is the cycle or time required to make a single read or write transaction between the CPU and an external device such as external memory. 
 
 
 ## Machine cycle
