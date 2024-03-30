@@ -25,9 +25,9 @@ A word, in the majority of architectures, is the largest piece of data that can 
 <details>
   <summary>If a CPU has 16-bit address bus and 8-bit words, how much memory can it address?</summary>
   <br>
-  Ref: https://superuser.com/questions/1216428/if-a-cpu-has-a-16-bit-address-bus-and-8-bit-words-how-much-memory-can-it-addres
+  Ref: <a>https://superuser.com/questions/1216428/if-a-cpu-has-a-16-bit-address-bus-and-8-bit-words-how-much-memory-can-it-addres</a>
 
-  So, your CPU will be able to address 64KB (2^16) but will only be able to transfer in a single operation 8 bits.
+  So, your CPU will be able to address 64KB (2<sup>16</sup>) but will only be able to transfer in a single operation 8 bits.
 </details>
 
 ## Values
@@ -38,7 +38,7 @@ A word, in the majority of architectures, is the largest piece of data that can 
 
 ## Numbers
 - Numbers are numeric values. 
-- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent **2^64** different numbers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 zeros) numbers**.
+- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent **2<sup>64</sup>** different whole numbers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 zeros) numbers**.
   - Computer memory used to be smaller so it’s easier to **overflow** back then. 
   - However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store fewer amount of digits, roughly **9 quarillion (15 zeros) numbers**.
     - Since binary numbers can have only two symbols, either 0 or 1 for each position or bit, so it is not possible to add minus or plus symbols in front of a binary number. We represent negative binary numbers using a minus symbol in front of them. **In computer number representation, these numbers can be distinguishable with the help of an extra bit or flag called sign bit or sign flag in the Binary number representation system for signed numbers**. This extra bit is called **sign bit or sign flag** which has a value of sign bit is 0 for positive numbers and 1 for negative binary numbers. Ref: [geeksforgeeks.org](https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/).
@@ -48,14 +48,14 @@ A word, in the majority of architectures, is the largest piece of data that can 
     
     Ex: The number 3.14 can be represented in **IEEE 754** single-precision format: **0-10000000-10010001111010111000011**. Ref: [h-schmidt.net/FloatConverter/IEEE654](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
     - Sign: 0 = +1 (Positive)
-    - Exponent: 10000000 = 128 = 2^1
+    - Exponent: 10000000 = 128 = 2<sup>1</sup>
     - Mantissa: 10010001111010111000011 = 4781507 = 1 + 0.5700000524520874
-    - (1 + 0.5700000524520874) * (2^1) * (+1) = 3.1400001049041748 (**Computer floating problem**)
+    - (1 + 0.5700000524520874) * (2<sup>1</sup>) * (+1) = 3.1400001049041748 (**Computer floating problem**)
     - Error due to conversion: 0.0000001049041748046875
 <details>
   <summary>What range of numbers can be represented in a 16-, 32- and 64-bit IEEE-754 systems?</summary>
   <br>
-  Ref: https://stackoverflow.com/questions/872544/what-range-of-numbers-can-be-represented-in-a-16-32-and-64-bit-ieee-754-syste 
+  Ref:<a> https://stackoverflow.com/questions/872544/what-range-of-numbers-can-be-represented-in-a-16-32-and-64-bit-ieee-754-syste</a> 
 
   For a given IEEE-754 floating point number X, if ```2^E <= abs(X) < 2^(E+1)``` then the distance from X to the next largest representable floating point number (epsilon) is:
   ```
@@ -64,7 +64,7 @@ A word, in the majority of architectures, is the largest piece of data that can 
   epsilon = 2^(E-10)    % For a 16-bit float (half precision)
   ```
   In short: 
-  64-bit (double-precision): 2^53 = 9 quarillion 
+  64-bit (double-precision): 2<sup>53</sup> = 9 quarillion 
 </details>
 
 - Whole numbers (**integers**) calculation, under 9 quadrillion, is always precise. Not with fractional numbers though because of floating point. Ex: ```0.0001 + 0.0002 = 0.00030000000000000003```
@@ -141,12 +141,13 @@ Ex: 16-bit data
 ## Kilobyte vs Kibibyte
 - Both are units of **digital information storage**
 - Kilobyte: More familiar term, 1 kilobyte = 1,000 bytes of data, more human-friendly, used in everyday language and in marketing materials (larger). 
-- Kibibyte (KiB): Newer term (1998) that represents 1,024 bytes of data, based on binary multiples, **which is displayed on the File Explorer**. 
+- Kibibyte (KiB): Newer term (1998) that represents 1,024 bytes of data, based on binary multiples, **which is displayed on the File Explorer**.
+
 ![Table of Decimal Prefix and Binary Prefix](Images/General%201%20Decimal%20and%20Binary%20Prefix.png)
 - Other method:
-  + kilo: 10^3 - kibi: 1024^1
-  + mega: 10^6 - mebi: 1024^2
-  + giga: 10^9 - gibi: 1024^3 
+  + kilo: 10<sup>3</sup> - kibi: 1024<sup>1</sup>
+  + mega: 10<sup>6</sup> - mebi: 1024<sup>2</sup>
+  + giga: 10<sup>9</sup> - gibi: 1024<sup>3</sup> 
 
 # Cycle
 Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle. 
@@ -161,13 +162,13 @@ Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle.
 - In a 32-bit microprocessor, with a 16-bit external data bus, data transferred per bus cycle = 2B (2 Bytes)
 - Minimum bus cycle = 4 clock cycles.
 - Maximum bus cycle rate = 8 MHz / 4 = 2 Mb/sec
-- Data transfer rate = bus cycle rate * data per bus cycle = 2 Mb * 2 = 4 * 10^6 Bytes/sec.
+- Data transfer rate = bus cycle rate * data per bus cycle = 2 Mb * 2 = 4 * 10<sup>6</sup> Bytes/sec.
 </details>
 
 ## Clock cycle and Bus cycle
 - A computer uses a clock. The frequency of this clock indicates how many (Giga/Mega/Kilo) cycles per second that the clock wave changes. This is the basis of any cycle for the computer. This can be considered a 'clock cycle'.
 
-Ex: A CPU poses a clock speed of 5 GHz, which means 5 x 10^9 cycles per second. 
+Ex: A CPU poses a clock speed of 5 GHz, which means 5 x 10<sup>9</sup> cycles per second. 
 
 - The bus cycle is the cycle or time required to to make a single read or write transaction between the CPU and an external device such as external memory. 
 
@@ -183,9 +184,7 @@ The amount of machine cycles needed to complete an instruction. This varies depe
 Ex:  Some instructions after fetching them from memory need to fetch more data to complete the instruction, some need to write data at the end of the instruction cycle, some instructions don't do much at all, like the NOP, which basically fetches the instruction and does nothing for one machine cycle.
 
 # Programming
-*Programming* is the act of constructing a *program* – a set of precise instructions telling the computer what to do. 
+- **Programming** is the act of constructing a *program* – a set of precise instructions telling the computer what to do. 
+- Computers themselves can do only stupidly straightforward things at an incredibly high speed.The art of programming is the skill of controlling complexity. 
 
-Computers themselves can do only stupidly straightforward things at an incredibly high speed. 
-The art of programming is the skill of controlling complexity. 
-
-Why language matters? The same program can be expressed in both long and short, unreadable and readable ways. 
+Why does language matter? The same program can be expressed in both long and short, unreadable and readable ways. 

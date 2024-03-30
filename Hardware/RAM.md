@@ -51,7 +51,7 @@
 ![DDR4 RAM Bus Speed](Images/RAM%202.1%20DDR4%20RAM%20Speed.png)
 
 Ex: **DDR4-4400 (PC4-35200)**
-- Memory speed (Friendly name): DDR4-4400 --> **Data Rate**: 4400 MHz (or 4.4 GHz) --> 1 **memory cycle** per (1 / (4.4 x 10^9)) of a second. It can be inferred as **4400 MT/s**
+- Memory speed (Friendly name): DDR4-4400 --> **Data Rate**: 4400 MHz (or 4.4 GHz) --> 1 **memory cycle** per (1 / (4.4 * 10<sup>9</sup>)) of a second. It can be inferred as **4400 MT/s**
 - Industry name: PC4-35200 --> 35,200 MB/s (**Peak transfer rate**).
 - To calculate the theoretical maximum data rate: ```4400 MT per second * 64 bits (maximum data transfer per cycle by 64-bit systems) = 281,600 bits per second = ``` **35,200 MB/s**.
 
@@ -59,7 +59,7 @@ Ex: **DDR4-4400 (PC4-35200)**
 - Each generation of RAM **increases speed and frequency while decreasing power consumption**. 
 - Memory is not compatible across all motherboards. Generally speaking, motherboards are built to support only one type of memory. **So, you can't mix and match SDRAM, DDR, DDR2, DDR3, DDR4, or DDR5 memory on the same motherboard, as they won't function. They may not even fit in the same sockets.**
 - However, RAM systems are industry-wise standardized, so you can choose whichever manufacturer. 
-- **Data Rate (MT/s)**: Numbers of mega-transfers per second. Ex: 3200MT/s = 3200 x 10^6 transfers per second. 
+- **Data Rate (MT/s)**: Numbers of mega-transfers per second. Ex: 3200MT/s = 3200 x 10<sup>6</sup> transfers per second. 
 - **Transfer Rate (MB/s)**: Amount of data that can be transferred per second. Ex: 35,200 MB/s.
 
 --> You can think that Data Rate refers to how fast the RAM module can transfer data and Transfer Rate refers to how much the module can transfer data. 
@@ -68,7 +68,7 @@ Ex: DDR5 specifications:
 - Data Rate: 3200 - 6400 (MT/s)
 - Transfer Rate: 38.4 - 51.2 (GB/s)
 
---> In one second, the module can perform 3200 x 10^6 transfers at the minimum and 6400 x 10^6 transfers at the maximum. The module can 'carry' 38.4 GB at the minimum and 51.2 GB at the maximum. 
+--> In one second, the module can perform 3200 x 10<sup>6</sup> transfers at the minimum and 6400 x 10<sup>6</sup> transfers at the maximum. The module can 'carry' 38.4 GB at the minimum and 51.2 GB at the maximum. 
 
 Gen | Year | Rate | Note
 ---|---|---|---|
@@ -115,7 +115,7 @@ Ex: A typical ATX motherboard has four RAM slots and it supports **dual-channel 
 
 ==> Multiple channels running parallel is similar to [how Parallel BUS works](#serial-and-parallel-bus). The data is divided into smaller chunks, which are then sent down separate paths or channels. This allows for more data to be transferred at the same time, increasing the overall throughput of the system. However, one of the challenges with a parallel bus is synchronizing the data between different lines. Rather than relying on precise timing between different lines, each memory channel operates independently, with its own clock signal. This can help to reduce the issues associated with skew[^1], since the data on each channel is synchronized locally.
 
-- [^1]: Skew is the phenomenon that can occur in a parallel bus architecture, where the data on different channels becomes misaligned due to the differences in the propagation delay of the signals. This can result in errors or corruption of the data, since the different chunks may not be correctly aligned when they are combined. 
+[^1]: Skew is the phenomenon that can occur in a parallel bus architecture, where the data on different channels becomes misaligned due to the differences in the propagation delay of the signals. This can result in errors or corruption of the data, since the different chunks may not be correctly aligned when they are combined. 
 
 ==> You can perceive that each channel is utilizing a Serial BUS approach. In modern systems, the memory interface typically uses a high-speed serial communication protocol, such as DDR (Double Data Rate) SDRAM, which allows for fast and efficient data transfer over a single line or differential pair. Each memory channel operates independently, with its own dedicated interface and clock signal, allowing it to transfer data to and from the memory controller independently of the other channels. This means that one channel can be transferring data to the memory controller while another channel is receiving data from a different source, such as the CPU or an input/output peripheral.
 
