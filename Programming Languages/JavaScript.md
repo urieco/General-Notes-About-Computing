@@ -1,8 +1,11 @@
 # Table of Contents
 - [What is JS?](#what-is-js)
 - [How to run JS code](#how-to-run-js-code)
+  + "use strict"
 - [How to add JS code](#how-to-add-js-code)
 - [Values, Types and Operators](#values-types-and-operators)
+  + Numbers, Special Numbers (NaN, Infinity), BigInt
+  + Strings
 
 # What is JS?
 - Invented in 1995
@@ -15,6 +18,24 @@
 # How to run JS code
 - Console tab in the Inspect (Q) option of the browser.
 - Node.js runtime in the Command Prompt.
+
+## "use strict"
+- Backwards compatibility won't break existing code, but it has allowed any mistake or imperfect decision made by JS's creators got stuck in the language forever. 
+- ES5 (2009) added new features to the language and modified some of the existing ones. To keep the old code working, most such modifications are off by default. You need to explicitly enable them with a special directive: `'use strict'`. 
+- `"use strict"` or `'use strict'` works either way. You should put it at the very top. 
+- There is no way to cancel it. Once we enter strict mode, there's no going back when the script is run. 
+- `"use strict"` is block-scoped. 
+
+```javascript
+// For old browsers:
+(function() {
+  'use strict';
+
+  // ...your code here...
+})()
+```
+
+- Modern JS with 'classes' and 'modules' `"use strict"` automatically, you can omit it if your script is only classes and modules. 
 
 # How to add JS code
 1. Inline JavaScript
@@ -82,9 +103,18 @@ See also: [Numbers](../Computer%20Science/General%20Knowledge.md#Numbers)
   + `Infinity - Infinity = NaN` 
   + Any operation that doesn't yield a meaningful result. 
 
+```javascript
+alert(1 / 0);               // Infinity
+alert(Infinity);            // Infinity
+alert('not a number' / 2);  // NaN
+alert( NaN + 1);            // NaN
+```
+
+> **Note**: Mathematical operations are safe, we can do anything: divide by zero, treat non-numeric strings as numbers, etc. The script will never stop with a fatal error ("die"). At worst, we'll get `NaN` as the result.
+
 2. **Strings**
 
-Ref: [Strings](../Computer%20Science/General%20Knowledge.md#strings)
+See also: [Strings](../Computer%20Science/General%20Knowledge.md#strings)
 
 ```javascript
 "This is a string."
@@ -94,4 +124,13 @@ Ref: [Strings](../Computer%20Science/General%20Knowledge.md#strings)
 "backslash (\) is for escaping character.\nI open a new line here. Only the default console can express the opening up of a new line. For the DOM, you may need the <br> element."
 "Escaping the escaping backslash character. Add another backslash like this \"\\n"\."
 ```
-- Strings have to be modeled as a series of bits to be able to exist inside the computer. JS does this based on the Unicode Standard. This standard assigns a number to virtually every character you would ever need 
+- Strings have to be modeled as a series of bits to be able to exist inside the computer. JS does this based on the Unicode Standard. This standard assigns a number to virtually every character you would ever need.
+- Strings cannot be subtracted, multiplied or divided, but can be 'added' or 'concatenated' using the + operator. Be careful!
+
+```javascript
+console.log('con' + 'cat' + 'e' + 'nate' + '/nnewline'); 
+/*
+concatenate
+newline
+*/
+```
