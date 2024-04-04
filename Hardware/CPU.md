@@ -1,14 +1,13 @@
 # Table of Contents
-
 [CPU](#CPU)
   - [Structure](#structure)
   - [Clock speed (GHz) and Cycle](#clock-speed-ghz-and-cycle)
   - [32-bit and 64-bit architecture](#32-bit-and-64-bit-architecture)
   - [Core](#core)
-  - [Instruction set architecture](#)
+  - [Instruction set architecture](#instruction-set-architecture)
   - [CPU Registers](#cpu-registers)
 
-[History and Types](#types)
+[History and Types](#history-and-types)
 
 # CPU
 Ref: [How does Computer Hardware Work?](https://www.youtube.com/watch?v=d86ws7mQYIg) (1:03 - 3:12)
@@ -88,7 +87,7 @@ The registers are an important component of the processor's micro-architecture. 
 - 1971: Intel released the first commercially available microprocessor. It is a 4-bit processor, meaning it could handle 4 bits of data at a time with approximately 2,300 transistors. The clock speed was 740 KHz.
 
 ## Types
-- GPU (Graphics Processing Unit) / Graphic Card: To calculate the appearance of all the lights and shadows in a game on demand. It is highly optimized for parallel computing. Unlike a typical CPU with measly 16 cores, NVIDIA GeForce RTX 4090 has a total of 16384 CUDA cores. Each of these cores can handle a floating point or integer computation per cycle, which in turn, allows games to perform tons of linear algebra in parallel to render Graphics instantly every time you push a button on your controller. GPU is also essential in training deep learning models that perform tons of matrix multiplication on large data sets.
-- TPU (Tensor Processing Unit): Similar to GPUs, but designed specifically for tensor operations, like the matrix multiplication required for deep learning. It was developed by Google in 2016 to integrate directly with its tensorflow software. A TPU contains thousands of these things called 'Multiply accumulators' that allow the hardware to perform matrix multiplication without the need to access registers or shared memory like a GPU would. It can save a lot of money to train a neural network that can take weeks or months to be trained. 
-- DPU (Data Processing Unit): Designed specifically for Big Data Centers. They are more like a CPU and typically based on the arm architecture but are highly optimized for moving data around. They also handle networking functions like packet processing, routing, security and data storage like compression and encryption. The goal is to relieve the CPU from any data processing jobs so it can focus solely on doing general-purpose Computing.
-- QPU (Quantum Processing Unit): It only exists in Theory at the moment. All the other processors deal in bits (0s and 1s). However, quantum computers deal in qubit or quantum bits that can exist in a superposition of both states simultaneously. A qubit can represent multiple possibilities at once, but once it is measured, it will collapse into one of the posisble states. These qubits are subjected to quantum entanglement which means the state of one (Q1) is directly related to the state of another (Q2), no matter that distance between them. 
+- **GPU (Graphics Processing Unit) / Graphic Card**: This is a specialized device which calculate the appearance of all the lights and shadows in a game on demand. It is highly optimized for parallel computing. Unlike a typical CPU with measly 16 cores, NVIDIA GeForce RTX 4090 has a total of 16384 CUDA cores, [but GPU's core isn't as powerful as a CPU's core](#core). Each of these cores can handle a floating point or a simple integer computation per cycle, which in turn, allows games to perform tons of linear algebra in parallel to render graphics instantly every time you push a button on your controller. GPU is also essential in training deep learning models that perform tons of matrix multiplication on large data sets.
+- **TPU (Tensor Processing Unit)**: Similar to GPUs, but designed specifically for tensor operations, like the matrix multiplications required for deep learning. It was developed by Google in 2016 to integrate directly with its TensorFlow software. A TPU contains thousands of these things called 'Multiply accumulators' that allow the hardware to perform matrix multiplication without the need to access [registers](#cpu-registers) or shared memory like a GPU would. It can save a lot of money to train a neural network that takes weeks or months. 
+- **DPU (Data Processing Unit)**: Designed specifically for Big Data Centers. They are typically based on the [ARM architecture](#instruction-set-architecture) but are highly optimized for moving data around. They also handle networking functions like packet processing, routing, security and data storage methods such as compression and encryption. The goal is to relieve the CPU from any data processing jobs so it can focus solely on doing general-purpose Computing.
+- **QPU (Quantum Processing Unit)**: It only exists on papers at the moment. All the other processors deal in bits (0s and 1s). However, quantum computers deal in qubit or quantum bits that can exist in a superposition of both states simultaneously. A qubit can represent multiple possibilities at once, but once it is measured, it will collapse into one of the posisble states. These qubits are subjected to quantum entanglement which means the state of one (Q1) is directly related to the state of another (Q2), no matter that distance between them. 
