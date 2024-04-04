@@ -3,6 +3,7 @@
 - [How to run JS code](#how-to-run-js-code)
   + "use strict"
 - [How to add JS code](#how-to-add-js-code)
+- [Variables](#variables)
 - [Values, Types and Operators](#values-types-and-operators)
   + Numbers, Special Numbers (NaN, Infinity), BigInt
   + Strings
@@ -77,6 +78,70 @@
     document.head.appendChild(scriptElement);
   </script>
 </body>
+```
+
+# Variables
+- A variable is a 'named storage' for data.
+- Without `"use strict"`, you can do assignments (x = 1) without ever declaration. 
+
+**`LET`**
+```javascript
+let x;              // declare variable 'x'
+x = 'Message';      // input data into it
+x = 'New message';  // throw out the old data and put in new data
+console.log(x);     // print value of 'x' to console
+
+let messageA = 'a', messageB = 'b', // You can declare multiple variables
+    messageC = 'c',
+    messageD = 'd';                 // Some utilize each new line for one new variable. However, good coding practices will advise against this due to poor readability.
+
+let noteA = 'a';
+let noteB = 'b';
+let noteC = 'c';    // You should advocate for this
+
+let id = 12;
+let id = 13;        // Error, you can't declare a variable twice                   
+```
+- Functional programming languages like Scala or Erland forbid changing variable's value.
+
+**`CONST`**
+```javascript
+const port = 8888;  // Make a constant
+const PI = 3.14159265;
+const COLOR_RED = '#F00';
+```
+- There is a widespread practice to use constants as aliases for difficult-to-remember values that are known prior to execution. Such constants are named using capital letters and underscores.
+
+**Why not `VAR`?**
+
+Ref: [javascript.info](https://javascript.info/var)
+- `var` has no block scope. `var` ignores code blocks, it shouldn't be used in global `if` block or global `for` block. 
+- `var` is either function-scoped or global-scoped.
+```javascript
+if (1) {
+  var leak = 'var variable';
+  let noLeak = 'let variable';
+}
+
+console.log(leak);   // print out 'var variable'
+console.log(noLeak); // 'noLeak' is not defined
+```
+- `var` tolerates redeclarations. Later redeclarations will overwrite the previous ones.
+- `var` variables can be declared below their usage, or 'hoisted' ('raised') to the top of the function. Declarations are hoisted, but assignments (x = 1) are not (Although JS allows the usage of variable without even declaring, it's generally a bad practice)
+```javascript
+x = 5; // Assign 5 to x
+
+var elem = document.getElementById("demo");   // Find an element
+elem.textContent = x;                     // Display x in the element
+
+var x; // Declare x 
+```
+- IIFE: In the past, programmers had to invent a way to emulate block-level visibility and it led to "immediately-invoked function expressions". This method is old and unrefined.
+```javascript
+(function () {
+  var message = "Hello";
+  console.log(message); // "Hello"
+})();
 ```
 
 # Values, Types and Operators
