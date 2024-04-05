@@ -4,6 +4,9 @@
   + "use strict"
 - [How to add JS code](#how-to-add-js-code)
 - [Variables](#variables)
+  + `let`
+  + `const`
+  + Why not `var`?
 - [Values, Types and Operators](#values-types-and-operators)
   + Numbers, Special Numbers (NaN, Infinity), BigInt
   + Strings
@@ -82,9 +85,11 @@
 
 # Variables
 - A variable is a 'named storage' for data.
-- Without `"use strict"`, you can do assignments (x = 1) without ever declaration. 
+- Without `"use strict"`, you can do assignments (x = 1) without ever declaration.
+- Don't reuse variables too much (assigning them again and again), it will be more time-consuming to debug.
+- `let` (declaration) reserved keyword and other types of keywords are case-sensitive. `let` !== `Let` and `let` !== `LET`. `Let` and `LET` don't work. 
 
-**`LET`**
+**`let`**
 ```javascript
 let x;              // declare variable 'x'
 x = 'Message';      // input data into it
@@ -102,9 +107,9 @@ let noteC = 'c';    // You should advocate for this
 let id = 12;
 let id = 13;        // Error, you can't declare a variable twice                   
 ```
-- Functional programming languages like Scala or Erland forbid changing variable's value.
+- So-called 'pure functional programming languages' like Scala, Haskell Erland forbid changing variable's value. Once the value is stored, it's there forever. 
 
-**`CONST`**
+**`const`**
 ```javascript
 const port = 8888;  // Make a constant
 const PI = 3.14159265;
@@ -112,7 +117,7 @@ const COLOR_RED = '#F00';
 ```
 - There is a widespread practice to use constants as aliases for difficult-to-remember values that are known prior to execution. Such constants are named using capital letters and underscores.
 
-**Why not `VAR`?**
+**Why not `var`?**
 
 Ref: [javascript.info](https://javascript.info/var)
 - `var` has no block scope. `var` ignores code blocks, it shouldn't be used in global `if` block or global `for` block. 
@@ -143,6 +148,18 @@ var x; // Declare x
   console.log(message); // "Hello"
 })();
 ```
+
+## Naming convention
+1. Letters, digits, or $name and _name.
+2. The first character must not be a digit.
+3. camelCase: e.g. myVeryLongVariableName.
+4. Case matters: e.g. apple !== APPLE.
+5. Stay away from abbreviations or short names like `a`, `b` and `c`, unless you know what you are doing.
+6. Make names maximally descriptive and concise (unlike `data` or `value`).
+7. Agree on terms within your team and in your mind. If a site visitor is caleld `user` then we should name related variables: `currentUser` or `newUser` instead of `currentVisitor` or `newManInTown`.
+8. Non-Latin letters are allowed, but not recommended.
+9. Reserved names (keywords) are forbidden (most of them are single words like return, continue, break, function... you can avoid this by using two or more words every time). Reserved names shouldn't be used next to each other.
+10. Hard-coded values for constants are usually depicted by names in uppercase and separated by underscores. Ex: COLOR_RED ("#F00") or PI (3.14159265). A hard-coded value is known before execution time.
 
 # Values, Types and Operators
 - [Values](../Computer%20Science/General%20Knowledge.md#values) (from CS/'General Knowledge'.md).
