@@ -38,26 +38,33 @@ A word, in the majority of architectures, is the largest piece of data that can 
 
 ## Numbers
 - Numbers are numeric values. 
-- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many patterns you can make with **64 bits**, which means that the number of different numbers that can be represented is **limited**. --> You can represent **2<sup>64</sup>** different whole numbers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 * 10<sup>18</sup>) numbers**.
+- The number of bits a typical modern 64-bit CPU will use to store a single integer value is 64 bits. There can be so many distinct sequences of 1's and 0's you can make with **64 bits**, which means that the amount of different integers that can be represented is **limited**. You can represent **2<sup>64</sup> - 1 (including the 0)** different (unsigned) whole numbers or positive integers, roughly **18,446,744,073,709,551,616 (or 18 quintillion - 18 * 10<sup>18</sup>) whole numbers**.
   - Computer memory used to be smaller so it’s easier to **overflow** back then. 
-  - However, some bits are delegated to indicate **the sign of the number** and **the position of the decimal point**. --> You can store fewer amount of digits, roughly **9 quadrillion (15 zeros) numbers**.
-    - Since binary numbers can have only two symbols, either 0 or 1 for each position or bit, so it is not possible to add minus or plus symbols in front of a binary number. We represent negative binary numbers using a minus symbol in front of them. **In computer number representation, these numbers can be distinguishable with the help of an extra bit or flag called sign bit or sign flag in the Binary number representation system for signed numbers**. This extra bit is called **sign bit or sign flag** which has a value of sign bit is 0 for positive numbers and 1 for negative binary numbers. Ref: [geeksforgeeks.org](https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/).
+  - However, not all 64 bits are solely dedicated to representing the integer, some bits are delegated to signify **the sign of the number** and **the position of the decimal point**. As a result, the actual number of unique integer values that can be stored is lower. You can store fewer amount of digits, **2<sup>53</sup>** combinations, roughly **9 quadrillion (15 zeros) numbers**.
+    - Ex: 
+    - **Sign**: Since binary numbers can have only two symbols, either 0 or 1 for each position or bit, so it is not possible to add minus or plus symbols in front of a binary number. We represent negative binary numbers using a minus symbol in front of them. **In computer number representation, these numbers can be distinguishable with the help of an extra bit or flag called sign bit or sign flag in the Binary number representation system for signed numbers. They can also be referred to as the most significant bit (MSb)**. This extra bit is called **sign bit or sign flag** which has a value of sign bit is 0 for positive numbers and 1 for negative binary numbers. You can depict **-ceil(2<sup>n</sup>/2) to +floor((2<sup>n</sup>/2) - 1)** integers. Thus, 64-bit can represent any integer within the range from -(2<sup>63</sup>) to (2<sup>63</sup> - 1).
+    Ref: [geeksforgeeks.org](https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/).
     ![Sign bit/flag](Images/General%200.1%20Sign%20bit.png)
     Ex: The first bit is '1' = Negative number. '0' = Positive number.
-    - Decimal point: The decimal point location is implicit based on the data type and intepretation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Significand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
+    - **Decimal point**: The decimal point location is implicit based on the data type and intepretation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Significand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
+    - For the **Double-precision floating-point format** in the IEEE 754-2008 standard (or binary64), 1 bit is designated to be the Sign bit, 11 bits are for the Exponent and the rest 53 bits (52 explicitly stored) are for Significand precision. 
     
-    Ex: The number 3.14 can be represented in **IEEE 754** single-precision format: **0-10000000-10010001111010111000011**. Ref: [h-schmidt.net/FloatConverter/IEEE654](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
-    - Sign: 0 = +1 (Positive)
-    - Exponent: 10000000 = 128 = 2<sup>1</sup>
-    - Mantissa: 10010001111010111000011 = 4781507 = 1 + 0.5700000524520874
-    - (1 + 0.5700000524520874) * (2<sup>1</sup>) * (+1) = 3.1400001049041748 (**Computer floating problem**)
-    - Error due to conversion: 0.0000001049041748046875
+Ex: The number 3.14 can be represented in **IEEE 754** single-precision format: **0-10000000-10010001111010111000011**. Ref: [h-schmidt.net/FloatConverter/IEEE654](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+- Sign: 0 = +1 (Positive)
+- Exponent: 10000000 = 128 = 2<sup>1</sup>
+  + You can probably pinpoint the exact number of this by guessing the highest power of 2 that doesn't exceed the integer's value. Ex: 39 (32 = 2<sup>5</sup>), 300 (256 = 2<sup>8</sup>) 
+- Mantissa: 10010001111010111000011 = 4781507 = 1 + 0.5700000524520874
+  + You can calculate the approximation of Mantissa by: Integer value / Exponent value (calculated from above) = 3.14 / 2<sup>1</sup> = 1.57 = 1 + 0.57. [However, binary can never display decimal value precisely](#the-floating-point-number-problem). 
+- (1 + 0.5700000524520874) * (2<sup>1</sup>) * (+1) = 3.1400001049041748 (**Computer floating problem**)
+- Error due to conversion: 0.0000001049041748046875
+<br>
+
 <details>
   <summary>What range of numbers can be represented in a 16-, 32- and 64-bit IEEE-754 systems?</summary>
   <br>
   Ref:<a> https://stackoverflow.com/questions/872544/what-range-of-numbers-can-be-represented-in-a-16-32-and-64-bit-ieee-754-syste</a> 
 
-  For a given IEEE-754 floating point number X, if ```2^E <= abs(X) < 2^(E+1)``` then the distance from X to the next largest representable floating point number (epsilon) is:
+  For a given IEEE-754 floating point number X, if `2^E <= abs(X) < 2^(E+1)` then the distance from X to the next largest representable floating point number (epsilon) is:
   ```
   epsilon = 2^(E-52)    % For a 64-bit float (double precision)
   epsilon = 2^(E-23)    % For a 32-bit float (single precision)
@@ -86,6 +93,7 @@ Ex: (100 + 34) * 11
 
 - The + and * symbols are called "operators".
 - Also there are subtraction and division operators (-, /).
+- There is a wide range of programming languages that use ** (Double asterisk) as an operator for exponentiation. 
 - Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
 - Remainder operator: 5 % 4 = 1. It is also referred to as "modulo".
 
@@ -111,13 +119,22 @@ Example Languages | C, Java (primitive String) | C++ (std::string), Python (mixe
 
 # Bit
 - Inside the computer's world, there is only **data**. All this data is stored as long sequences of **bits**. 
-- Bits are any kind of two-valued things, usually 0 and 1. 
+- Bits are any kind of two-valued things, usually 0 and 1.
+- There are 2<sup>n</sup> distinct sequences of 1's and 0's that can be made from n bits. Ex 8 bits = 2<sup>8</sup> distinct sequences.
 
 Sequence | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1
 ---|---|---|---|---|---|---|---|---|
 **Bit** | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
 
-Ex: 13 = 00001101
+Ex: (13)<sub>10</sub> = (00001101)<sub>2</sub>
+
+**To convert binary numbers to decimal**: 
+- Write down the binary number.
+- List the powers of 2 from right to left, starting with 2<sup>0</sup> (which is 1) and going up to 2 raised to the number of digits minus 1. Similar to how the table above is set.
+- Look at each digit in the binary number. If the digit is 1, write down the corresponding power of 2 below it. If the digit is 0, just leave a space.
+- Add up all the written powers of 2. That sum is the decimal equivalent of the binary number.
+
+Ex: (000110011)<sub>2</sub> = 1 + 2 + 16 + 32 = (51)<sub>10</sub>
 
 ## *-bit data
 Ex: 16-bit data
@@ -157,6 +174,7 @@ Generally, Instruction cycle > Machine cycle > Bus cycle ~ Clock cycle.
 - The CPU will refer to its clock speed as the amount of **computation cycles** it can perform per second - a single computation or arithmetic operation (addition, subtraction, multiplication and division).
 - A memory module (RAM stick) will refer to its clock speed as the amount of **memory cycles** it can perform per second - A simple read or write operation to memory. 
 - You can call "Computation cycle of the CPU" as "CPU clock cycle" and "Memory cycle of the RAM modules" as "RAM clock cycle". 
+<br>
 
 <details>
   <summary>Consider a 32 – bit microprocessor, with a 16 – bit external data bus, driven by an 8 MHz input clock. Assume that this microprocessor has a bus cycle whose minimum duration equals four input clock cycles. What is the maximum data transfer rate for this microprocessor?</summary>
