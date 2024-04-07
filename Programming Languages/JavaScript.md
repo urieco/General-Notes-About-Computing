@@ -170,8 +170,9 @@ var x; // Declare x
 See also: [Numbers](../Computer%20Science/General%20Knowledge.md#Numbers)
 
 - Numeric values
-- JS uses a fixed number of bits, 64 of them, to store a single number value. There are so many patterns you can make with **64 bits**, which means that number of different numbers that can be represented is **limited**. --> You can represent 2<sup>64</sup> different integers (whole numbers) (due to how common 64-bit architecture CPUs are).
-- However, some bits are delegated to indicate **the sign of the number and the position of the decimal point**. You can only store 2<sup>53</sup> numbers (9 quadrillion - 10<sup>15</sup>).
+- JS uses a fixed number of bits, 64 of them, to store a single number value. There are so many patterns (distinct sequences of 1's and 0's) you can make with **64 bits**, which means that number of different numbers that can be represented is **limited**. You can represent (2<sup>64</sup> - 1) different positive integers (whole numbers) (due to how common 64-bit architecture CPUs are).
+- However, some bits are delegated to indicate **the sign of the number and the position of the decimal point**. You can only store numbers within the range from (2<sup>53</sup> - 1) to  -(2<sup>53</sup> - 1) for integers. 
+  + To be really precise, the 'number' type can store larger integers (up to 1.7976931348623157 * 10<sup>308</sup>)
 - Whole numbers (integers) calculation, under 9 quadrillion, is always precise, not with fractional numbers thanks to [floating-point number problem](../Computer%20Science/General%20Knowledge.md##the-floating-point-number-problem). 
 
 **Arithmetic**: See [Arithmetic](../Computer%20Science/General%20Knowledge.md#arithmetic-and-operators)
