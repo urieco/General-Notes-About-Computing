@@ -8,7 +8,8 @@
   + `const`
   + Why not `var`?
 - [Values, Types and Operators](#values-types-and-operators)
-  + Numbers, Special Numbers (NaN, Infinity), BigInt
+  + Numbers, Special Numbers (NaN, Infinity)
+  + BigInt
   + Strings
 
 # What is JS?
@@ -172,7 +173,15 @@ See also: [Numbers](../Computer%20Science/General%20Knowledge.md#Numbers)
 - Numeric values
 - JS uses a fixed number of bits, 64 of them, to store a single number value. There are so many patterns (distinct sequences of 1's and 0's) you can make with **64 bits**, which means that number of different numbers that can be represented is **limited**. You can represent (2<sup>64</sup> - 1) different positive integers (whole numbers) (due to how common 64-bit architecture CPUs are).
 - However, some bits are delegated to indicate **the sign of the number and the position of the decimal point**. You can only store numbers within the range from (2<sup>53</sup> - 1) to  -(2<sup>53</sup> - 1) for integers. 
-  + To be really precise, the 'number' type can store larger integers (up to 1.7976931348623157 * 10<sup>308</sup>)
+  + To be really precise, the 'number' type can store larger integers (up to 1.7976931348623157 * 10<sup>308</sup>), but outside of the safe integer range +/-(2<sup>53</sup> - 1), there'll be a precision error, because not all digits fit into the fixed 64-bit storage. So an "approximate" value may be stored. For example, these two numbers (right above the safe range) are the same:
+
+  ```javascript
+  console.log(9007199254740991 + 1); // 9007199254740992
+  console.log(9007199254740991 + 2); // 9007199254740992
+
+  // All odd integers greater than (2^53 - 1) can't be stored at all in the 'number' type. 
+  ```
+
 - Whole numbers (integers) calculation, under 9 quadrillion, is always precise, not with fractional numbers thanks to [floating-point number problem](../Computer%20Science/General%20Knowledge.md##the-floating-point-number-problem). 
 
 **Arithmetic**: See [Arithmetic](../Computer%20Science/General%20Knowledge.md#arithmetic-and-operators)
@@ -195,7 +204,17 @@ alert( NaN + 1);            // NaN
 
 > **Note**: Mathematical operations are safe, we can do anything: divide by zero, treat non-numeric strings as numbers, etc. The script will never stop with a fatal error ("die"). At worst, we'll get `NaN` as the result.
 
-2. **Strings**
+2. **BigInt**
+- `BigInt` type was recently added to the language to represent integers of arbitrary length. 
+
+```javascript
+// the "n" at the end means it's a BigInt
+const bigInt = 1234567890123456789012345678901234567890n;
+```
+
+> `BigInt` is supported in Firefox/Chrome/Edge/Safari, but not in IE. 
+
+3. **Strings**
 
 See also: [Strings](../Computer%20Science/General%20Knowledge.md#strings)
 
@@ -217,3 +236,5 @@ concatenate
 newline
 */
 ```
+
+- There is no *character* type in JS (like in C and Java with 'char' type). A string may consist of zero characters (be empty), one character or many of them. 
