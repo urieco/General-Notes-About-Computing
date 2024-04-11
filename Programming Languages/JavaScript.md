@@ -11,6 +11,9 @@
   + Numbers, Special Numbers (NaN, Infinity)
   + BigInt
   + Strings
+  + Boolean (true/false)
+  + `null`
+  + `undefined`
 
 # What is JS?
 - Invented in 1995
@@ -238,3 +241,36 @@ newline
 ```
 
 - There is no *character* type in JS (like in C and Java with 'char' type). A string may consist of zero characters (be empty), one character or many of them. 
+
+4. **Boolean (logical type)**
+- Only two values: `true` or `false`.
+
+```javascript
+isEven(2);              // true
+file.isChecked = true;  
+
+let isGreater = 4 > 1;  // true
+```
+
+5. **The "null" value**
+- The special `null` value does not belong to any of the types described above. It forms a separate type of its own which contains the `null` value:
+
+```javascript
+let age = null; // 'age' is unknown 
+```
+
+- `null` is not a 'reference to a non-existing object'or a 'null pointer' like in some other languages.
+- It's just a special value which represents 'nothing', 'empty' or 'value unknown'. 
+
+6. **The "undefined" value**
+- The special value `undefined` also stands apart. It makes a type of its own, just like `null`. 
+- The meaning of `undefined` is 'value is not assigned'.
+- When a variable is declared, it is assigned `undefined` by default:
+
+```javascript
+let age;
+console.log(age);     // shows 'undefined'
+
+let name = undefined; // you can explicitly assign 'undefined' to a variable
+```
+- To refer to a variable as 'empty' or 'unknown', we should use `null` instead of explicitly assigning `undefined` to the variable. 
