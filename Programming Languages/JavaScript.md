@@ -14,6 +14,8 @@
   + Boolean (true/false)
   + `null`
   + `undefined`
+  + Objects(not primitive)
+  + Symbols
 
 # What is JS?
 - Invented in 1995
@@ -248,9 +250,20 @@ newline
 ```javascript
 isEven(2);              // true
 file.isChecked = true;  
-
-let isGreater = 4 > 1;  // true
 ```
+
+**Comparison:*
+```javascript
+let isGreater = 4 > 1;                  // true
+
+console.log('Aardvark' < 'Zoroaster');  // true
+console.log('Itchy' != 'Scratchy');     // true
+```
+
+- UPPERCASE letter < lowercase letters. Therefore, 'Z' < 'a' and nonalphabetic characters (!, -, ~, etc.) are also included in the ordering. When comparing strings, JS goes over the characters from **left to right, comparing the Unicode codes one by one**. 
+- Other comparison operators: >=, <=, ==, === and !=
+
+> **There is only one value in JS that is not equal to itself: NaN**. NaN is supposed to denote the result of a nonsensical computation, and as such, it isn’t equal to the result of any other nonsensical computations
 
 5. **The "null" value**
 - The special `null` value does not belong to any of the types described above. It forms a separate type of its own which contains the `null` value:
@@ -274,3 +287,9 @@ console.log(age);     // shows 'undefined'
 let name = undefined; // you can explicitly assign 'undefined' to a variable
 ```
 - To refer to a variable as 'empty' or 'unknown', we should use `null` instead of explicitly assigning `undefined` to the variable. 
+
+7. **Objects**
+- The `Object` type is special. All other types are called 'primitive' because their values can contain only a single thing (be it a string or a number or whatever).  In contrast, objects are used to store collections of data and more complex entities.
+
+8. **Symbols**
+- The `Symbol` type is used to create unique identifiers for objects.
