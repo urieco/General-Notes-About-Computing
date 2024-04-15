@@ -8,14 +8,19 @@
   + `const`
   + Why not `var`?
 - [Values, Types and Operators](#values-types-and-operators)
-  + Numbers, Special Numbers (NaN, Infinity)
-  + BigInt
-  + Strings
-  + Boolean (true/false)
-  + `null`
-  + `undefined`
-  + Objects(not primitive)
-  + Symbols
+  - [Types](#types)
+    + Numbers, Special Numbers (NaN, Infinity)
+    + BigInt
+    + Strings
+    + Boolean (true/false)
+    + `null`
+    + `undefined`
+    + Objects(not primitive)
+    + Symbols
+  - [Operators](#operators)
+    + Arithmetic operators
+    + Logical operators
+    + Ternary / Conditional operator
 
 # What is JS?
 - Invented in 1995
@@ -137,7 +142,7 @@ if (1) {
 console.log(leak);   // print out 'var variable'
 console.log(noLeak); // 'noLeak' is not defined
 ```
-- `var` tolerates redeclarations. Later redeclarations will overwrite the previous ones.
+- `var` tolerates re-declarations. Later re-declarations will overwrite the previous ones.
 - `var` variables can be declared below their usage, or 'hoisted' ('raised') to the top of the function. Declarations are hoisted, but assignments (x = 1) are not (Although JS allows the usage of variable without even declaring, it's generally a bad practice)
 ```javascript
 x = 5; // Assign 5 to x
@@ -162,7 +167,7 @@ var x; // Declare x
 4. Case matters: e.g. apple !== APPLE.
 5. Stay away from abbreviations or short names like `a`, `b` and `c`, unless you know what you are doing.
 6. Make names maximally descriptive and concise (unlike `data` or `value`).
-7. Agree on terms within your team and in your mind. If a site visitor is caleld `user` then we should name related variables: `currentUser` or `newUser` instead of `currentVisitor` or `newManInTown`.
+7. Agree on terms within your team and in your mind. If a site visitor is called `user` then we should name related variables: `currentUser` or `newUser` instead of `currentVisitor` or `newManInTown`.
 8. Non-Latin letters are allowed, but not recommended.
 9. Reserved names (keywords) are forbidden (most of them are single words like return, continue, break, function... you can avoid this by using two or more words every time). Reserved names shouldn't be used next to each other.
 10. Hard-coded values for constants are usually depicted by names in uppercase and separated by underscores. Ex: COLOR_RED ("#F00") or PI (3.14159265). A hard-coded value is known before execution time.
@@ -175,7 +180,7 @@ var x; // Declare x
 
 See also: [Numbers](../Computer%20Science/General%20Knowledge.md#Numbers)
 
-- Numeric values
+- Numeric values.
 - JS uses a fixed number of bits, 64 of them, to store a single number value. There are so many patterns (distinct sequences of 1's and 0's) you can make with **64 bits**, which means that number of different numbers that can be represented is **limited**. You can represent (2<sup>64</sup> - 1) different positive integers (whole numbers) (due to how common 64-bit architecture CPUs are).
 - However, some bits are delegated to indicate **the sign of the number and the position of the decimal point**. You can only store numbers within the range from (2<sup>53</sup> - 1) to  -(2<sup>53</sup> - 1) for integers. 
   + To be really precise, the 'number' type can store larger integers (up to 1.7976931348623157 * 10<sup>308</sup>), but outside of the safe integer range +/-(2<sup>53</sup> - 1), there'll be a precision error, because not all digits fit into the fixed 64-bit storage. So an "approximate" value may be stored. For example, these two numbers (right above the safe range) are the same:
@@ -187,11 +192,9 @@ See also: [Numbers](../Computer%20Science/General%20Knowledge.md#Numbers)
   // All odd integers greater than (2^53 - 1) can't be stored at all in the 'number' type. 
   ```
 
-- Whole numbers (integers) calculation, under 9 quadrillion, is always precise, not with fractional numbers thanks to [floating-point number problem](../Computer%20Science/General%20Knowledge.md##the-floating-point-number-problem). 
+- You can declare JS number as Objects (`let y = new Number(123)`), **but this is not recommended**.
 
-**Arithmetic**: See [Arithmetic](../Computer%20Science/General%20Knowledge.md#arithmetic-and-operators)
-- Operators (+, -, *, /, % - Remainder or modulo...)
-- Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
+- Whole numbers (integers) calculation, under 9 quadrillion, is always precise, not with fractional numbers thanks to [floating-point number problem](../Computer%20Science/General%20Knowledge.md##the-floating-point-number-problem). 
 
 **Special Numbers**: 
 - Infinity and - Infinity (Negative Infinity). `Infinity - 1` is still Infinity.
@@ -235,7 +238,7 @@ See also: [Strings](../Computer%20Science/General%20Knowledge.md#strings)
 - Strings cannot be subtracted, multiplied or divided, but can be 'added' or 'concatenated' using the + operator. Be careful!
 
 ```javascript
-console.log('con' + 'cat' + 'e' + 'nate' + '/nnewline'); 
+console.log('con' + 'cat' + 'e' + 'nate' + '/nNewline'); 
 /*
 concatenate
 newline
@@ -260,8 +263,8 @@ console.log('Aardvark' < 'Zoroaster');  // true
 console.log('Itchy' != 'Scratchy');     // true
 ```
 
-- UPPERCASE letter < lowercase letters. Therefore, 'Z' < 'a' and nonalphabetic characters (!, -, ~, etc.) are also included in the ordering. When comparing strings, JS goes over the characters from **left to right, comparing the Unicode codes one by one**. 
-- Other comparison operators: >=, <=, ==, === and !=
+- UPPERCASE letter < lowercase letters. Therefore, 'Z' < 'a' and non-alphabetic characters (!, -, ~, etc.) are also included in the ordering. When comparing strings, JS goes over the characters from **left to right, comparing the Unicode codes one by one**. 
+- Other comparison operators: >=, <=, ==, === and !=.
 
 > **There is only one value in JS that is not equal to itself: NaN**. NaN is supposed to denote the result of a nonsensical computation, and as such, it isn’t equal to the result of any other nonsensical computations
 
@@ -293,3 +296,61 @@ let name = undefined; // you can explicitly assign 'undefined' to a variable
 
 8. **Symbols**
 - The `Symbol` type is used to create unique identifiers for objects.
+
+## Operators
+**Arithmetic operators**: See [Arithmetic and operators](../Computer%20Science/General%20Knowledge.md#arithmetic-and-operators)
+- Operators: 
+  + `=`: Assignment. 
+  + `+`: Addition; `+=`: Addition assignment.
+  + `-`: Subtraction; `-=`: Subtraction assignment.
+  + `*`: Multiplication; `*=`: Multiplication assignment.
+  + `**`: Exponentiation (b<sup>n</sup> = `b ** n` or `Math.pow(b,n)`).
+  + `/`: Division; `/=`: Division assignment.
+  + `%`: Remainder or Modulus (`5 % 2 = 1`).
+  + `++`: Increment (Only for variables: `var++` or `++var` = var + 1).
+  + `--`: Decrement (`var--` or `--var` = var -1).
+
+- Multiplication and division are always done before addition and subtraction.
+- Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
+
+**Comparison operators**
+- `==`: Loose equality.
+- `!=`: Loose non-equality.
+- `===`: Strict equality.
+- `!==`: Strict non-equality.
+- `<`: Less than.
+- `>`: More than.
+- `<=`: Less than or equal to.
+- `>=`: Greater than or equal to. 
+
+> : `==` and `!=` are usable in tests for equality and non-equality. However, they only test the value, not the data type. 
+
+**Logical operators**: 
+- `&&`: AND
+- `||`: OR
+- `!`: NOT
+
+```javascript
+console.log(true && false); // false
+console.log(false || true); // true
+console.log(!true);         // false
+```
+
+- `||` has the lowest precedence, then comes `&&` and then `!`.
+
+```javascript
+console.log(1 + 1 == 2 && 10 * 10 < 50);  // false
+// The first statement `1 + 1 == 2` is evaluated to be 'true', the program will continue on to the second statement which results in 'false'
+
+console.log(1 + 1 == 3 && 10 * 10 > 50);  // false
+// If the first statement is evaluated to be 'false', the program will stop and print out 'false' without moving on to the next statement. 
+```
+This is also considered to be [short-circuit evaluation](#).
+
+
+**Ternary / Conditional Operator**:
+
+```javascript
+console.log(true ? 1 : 2);  // 1
+console.log(false ? 1 : 2); // 2
+```
