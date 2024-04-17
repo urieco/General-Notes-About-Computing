@@ -17,10 +17,12 @@
     + `undefined`
     + Objects(not primitive)
     + Symbols
+    + [Automatic Type Conversion](#automatic-type-conversion)
   - [Operators](#operators)
     + Arithmetic operators
     + Logical operators
     + Ternary / Conditional operator
+    + [Short-circuit evaluation](#short-circuit-evaluation)
 
 # What is JS?
 - Invented in 1995
@@ -251,16 +253,22 @@ newline
 - Only two values: `true` or `false`.
 
 ```javascript
-isEven(2);              // true
+isEven(2);                // true
 file.isChecked = true;  
+console.log(true == 1 && true == 29); // true and false
+console.log(false == 0);    // true
+console.log(false == "");   // true
+console.log(false == NaN);  // false, the same with 'undefined', 'null'. 
+console.log(false === 0);   // false, because the types are different. 
 ```
 
-**Comparison:*
+**Comparison:**
 ```javascript
 let isGreater = 4 > 1;                  // true
 
 console.log('Aardvark' < 'Zoroaster');  // true
 console.log('Itchy' != 'Scratchy');     // true
+console.log("2" > "12");                // true, as "2" is greater than the first character "12"[0] = "1"
 ```
 
 - UPPERCASE letter < lowercase letters. Therefore, 'Z' < 'a' and non-alphabetic characters (!, -, ~, etc.) are also included in the ordering. When comparing strings, JS goes over the characters from **left to right, comparing the Unicode codes one by one**. 
@@ -289,13 +297,50 @@ console.log(age);     // shows 'undefined'
 
 let name = undefined; // you can explicitly assign 'undefined' to a variable
 ```
+- Accessing an object property or array element that does not exist also results in `undefined`.
 - To refer to a variable as 'empty' or 'unknown', we should use `null` instead of explicitly assigning `undefined` to the variable. 
+
+**`null` vs `undefined`**
+- Both denote the absence of a meaningful value. They are themselves values, but they carry no information. 
+
+`undefined` | `null`
+---|---
+A variable has been declared but has yet not been assigned a value | `null` is a deliberate assignment
+Global property | Not a global property
+
+```javascript
+console.log(null == undefined);  // true
+console.log(null === undefined); // false
+
+alert(null > 0);         // false
+alert(null == 0);        // false
+alert(null >= 0);        // true
+alert(undefined > 0);    // false
+alert(undefined == 0);   // false
+alert(undefined >= 0);   // false
+```
+
+> **How to avoid problems**: Treat any comparison with `undefined` and `null` with strict equality `===` with exceptional care. Don't use Don’t use comparisons `>=, >, <, <=` with a variable which may be null/defined, unless you’re really sure of what you’re doing. If a variable can have these values, check for them separately. 
 
 7. **Objects**
 - The `Object` type is special. All other types are called 'primitive' because their values can contain only a single thing (be it a string or a number or whatever).  In contrast, objects are used to store collections of data and more complex entities.
 
 8. **Symbols**
 - The `Symbol` type is used to create unique identifiers for objects.
+
+### Automatic Type Conversion
+- JS goes out of its way to accept almost any program you give it, even programs that do odd things. 
+- When an operator is applied to the “wrong” type of value, JS will quietly convert that value to the type it needs (type coercion). 
+
+```javascript
+console.log(8 * null);    // 0
+console.log("5" - 1);     // 4
+console.log("5" + 1);     // Beware of the Addition operator, if the first operand is a string, the addition mark will be understood as a concatenation directive.
+console.log("five" * 2);  // NaN
+console.log(null == undefined); // only true if both sides are one of 'null' and 'undefined'
+```
+- When something that doesn’t map to a number in an obvious way (such as 'five' or 'undefined') is converted to a number, you get the value `NaN`. Further arithmetic operations on NaN keep producing `NaN`. 
+- When you don’t want any automatic type conversions to happen, use `===` defensively. 
 
 ## Operators
 **Arithmetic operators**: See [Arithmetic and operators](../Computer%20Science/General%20Knowledge.md#arithmetic-and-operators)
@@ -345,8 +390,7 @@ console.log(1 + 1 == 2 && 10 * 10 < 50);  // false
 console.log(1 + 1 == 3 && 10 * 10 > 50);  // false
 // If the first statement is evaluated to be 'false', the program will stop and print out 'false' without moving on to the next statement. 
 ```
-This is also considered to be [short-circuit evaluation](#).
-
+This is also considered to be [short-circuit evaluation](#short-circuit-evaluation).
 
 **Ternary / Conditional Operator**:
 
@@ -354,3 +398,23 @@ This is also considered to be [short-circuit evaluation](#).
 console.log(true ? 1 : 2);  // 1
 console.log(false ? 1 : 2); // 2
 ```
+
+### Short-circuit evaluation
+- Depending on the operator and the result of that conversion, `&&` and `||` will return either original left-hand value or the right-hand value. 
+
+```javascript
+console.log(null || "user");    // "user"
+console.log("Agnes" || "user"); // "Agnes"
+console.log(0 || -1);           // -1
+console.log("" || "!?");        // "!?"
+```
+
+- We can use `||` functionality as a way to fall back on a default value. If you have a value that might be empty, you can put || after it with a replacement value. If the initial value can be converted to false, you’ll get the second one instead. 
+- `&&` works similarly but the other way around. 
+
+```javascript
+console.log(null && 32);        // null 
+console.log("Among" && "Us");   // "Us"
+```
+
+- The part to the right is only evaluated when necessary, which saves computing power.
