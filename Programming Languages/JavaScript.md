@@ -174,6 +174,20 @@ var x; // Declare x
 9. Reserved names (keywords) are forbidden (most of them are single words like return, continue, break, function... you can avoid this by using two or more words every time). Reserved names shouldn't be used next to each other.
 10. Hard-coded values for constants are usually depicted by names in uppercase and separated by underscores. Ex: COLOR_RED ("#F00") or PI (3.14159265). A hard-coded value is known before execution time.
 
+## Destructuring
+Destructuring assignment is an expression that makes it
+
+```javascript
+const foo = ["one", "two", "three"];
+
+const one = foo[0];
+const two = foo[1];
+const three = foo[2];
+
+const [four, five] = [4, 5, 6];     // four = 4; five = 5
+const [six, seven, eight] = [6, 7]; // six = 6; seven = 7; eight = undefined
+```
+
 # Values, Types and Operators
 - [Values](../Computer%20Science/General%20Knowledge.md#values) (from CS/'General Knowledge'.md).
 
@@ -344,19 +358,24 @@ console.log(null == undefined); // only true if both sides are one of 'null' and
 
 ## Operators
 **Arithmetic operators**: See [Arithmetic and operators](../Computer%20Science/General%20Knowledge.md#arithmetic-and-operators)
-- Operators: 
-  + `=`: Assignment. 
-  + `+`: Addition; `+=`: Addition assignment.
-  + `-`: Subtraction; `-=`: Subtraction assignment.
-  + `*`: Multiplication; `*=`: Multiplication assignment.
-  + `**`: Exponentiation (b<sup>n</sup> = `b ** n` or `Math.pow(b,n)`).
-  + `/`: Division; `/=`: Division assignment.
-  + `%`: Remainder or Modulus (`5 % 2 = 1`).
-  + `++`: Increment (Only for variables: `var++` or `++var` = var + 1).
-  + `--`: Decrement (`var--` or `--var` = var -1).
+- `+`: Addition.
+- `-`: Subtraction.
+- `*`: Multiplication. 
+- `**`: Exponentiation (b<sup>n</sup> = `b ** n` or `Math.pow(b,n)`).
+- `/`: Division.
+- `%`: Remainder or Modulus (`5 % 2 = 1`).
+---
+- `++`: Increment (Only for variables: `var++` or `++var` = var + 1).
+- `--`: Decrement (`var--` or `--var` = var -1).
 
-- Multiplication and division are always done before addition and subtraction.
-- Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
+**Assignment operators**
+- `=`: Assignment. 
+- `+=`: Addition assignment.
+- `-=`: Subtraction assignment.
+- `*=`: Multiplication assignment.
+- `/=`: Division assignment.
+- `%=`: Remainder assignment.
+- `**=`: Exponentiation assignment.
 
 **Comparison operators**
 - `==`: Loose equality.
