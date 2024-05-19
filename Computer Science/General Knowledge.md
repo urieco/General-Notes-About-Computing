@@ -4,7 +4,7 @@
   - Values
   - [Numbers](#numbers): Sign, Exponent and Mantissa
     + Floating-point number problem
-    + Arithmetic and operators
+    + Arithmetic and operators: Operands
   - [Strings](#strings)
 
 - [Bit](#bit)
@@ -46,7 +46,7 @@ A word, in the majority of architectures, is the largest piece of data that can 
     Ref: [geeksforgeeks.org](https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/).
     ![Sign bit/flag](Images/General%200.1%20Sign%20bit.png)
     Ex: The first bit is '1' = Negative number. '0' = Positive number.
-    - **Decimal point**: The decimal point location is implicit based on the data type and intepretation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Significand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
+    - **Decimal point**: The decimal point location is implicit based on the data type and interpretation of the bits. For numbers with decimal points, computers commonly use a floating-point representation. This separates the number into two parts: **Significand (mantissa) - storing the actual digits of the number; and the Exponent - indicating the position of the decimal point by representing the power of 10 to which the significand should be scaled**.
     - For the **Double-precision floating-point format** in the IEEE 754-2008 standard (or binary64), 1 bit is designated to be the Sign bit, 11 bits are for the Exponent and the rest 53 bits (52 explicitly stored) are for Significand precision. 
     
 Ex: The number 3.14 can be represented in **IEEE 754** single-precision format: **0-10000000-10010001111010111000011**. Ref: [h-schmidt.net/FloatConverter/IEEE654](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
@@ -88,10 +88,15 @@ Why ```0.1 + 0.2 = 0.30000000...1 ?```
   - At some points, the recurring has to be cut off, to produce a result for the calculation. 
   - It is similar to ```0.333 + 0.333 + 0.333 = 0.999```. The computer doesn't understand recurring like we do. 
 
+**How to solve it:**
+```javascript
+let x = (0.2 * 10 + 0.1 * 10) / 10;
+```
+
 ### Arithmetic and operators
 Ex: (100 + 34) * 11
 
-- The + and * symbols are called "operators".
+- The + and * symbols are called "operators". (The 100, 34 and 11 are 'operands')
 - Also there are subtraction and division operators (-, /).
 - There is a wide range of programming languages that use ** (Double asterisk) as an operator for exponentiation. 
 - Without parentheses, the order in which they are applied is determined by the precedence of the operators. 
