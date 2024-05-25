@@ -210,6 +210,45 @@ Ex:  Some instructions after fetching them from memory need to fetch more data t
 
 # Programming
 - **Programming** is the act of constructing a *program* – a set of precise instructions telling the computer what to do. 
+- A modern computer can be described as "a machine that stores and manipulates information under the control of a changeable program."
+  + An embedded computer is built to perform a single, specific task (without the "control of a changeable program"). Ex: A ticket dispenser, a gas pump...
 - Computers themselves can do only stupidly straightforward things at an incredibly high speed.The art of programming is the skill of controlling complexity. 
+- A **program**: is a detailed, step-by-step set of instructions telling a computer exactly what to do. It can also be called a **software**. 
+<br>
+- The question "what can be computed?" can be considered through *design, analysis, and experimentation*. 
+  + **Design** a solution, a step-by-step process for achieving the desired result, also called an **algorithm** (or *recipe*). One weakness of design is that it can only answer the question "What is computable?" in the positive. If you cannot devise a solution for a problem, is that problem unsolvable/non-computable or are you simply not smart enough to come up with one?
+  + **Analysis** comes in to rescue: Examining algorithms and problems mathematically. Some problems can be simply solved with algorithms. The algorithms that solve these problems either take too long or require too much memory/computation power to be of practical value. 
+  + Some problems are too complex or ill-defined to lend themselves to **analysis**. In such cases, we will rely on **experimentation** to verify and redefine the problem. 
 
-Why does language matter? The same program can be expressed in both long and short, unreadable and readable ways. 
+## Hardware Basics
+- The memory store programs and data. 
+- The CPU can directly access only information that is stored in main memory (called RAM). Main memory is fast, but volatile. In the instance the power is cut, the memory will be lost. 
+- Principle secondary memory is typically an internal hard disk drive (HDD) or solid state drive (SSD). HDD stores information as magnetic patterns on a spinning disk, while an SSD employs electronic circuits known as flash memory. 
+- Removable media stored in secondary memory such as USB memory sticks. 
+- DVSs (digital versatile discs), which store information as optical patterns that are read and written by the laser. 
+- Human interacts with the computer through a multitude of I/O devices. 
+- Typically, the CPU follows a pattern called the **fetch - execute** cycle. 
+
+## Programming languages
+Despite the existing assistants like Siri, Google Now and Cortana and lately ChatGPT, we are still far from a system that can perfectly understand human language. Computer scientists have designed notations for expressing computations/instructions in an exact and umambiguous way. Every structure in a programming language has a precise form (its **syntax**) and a precise meaning (its **semantics**). 
+- Programs = Computer code; Writing an algorithm in a programming language = coding. 
+- **High-level** computer languages (ex: Python, C++, Java, JavaScript...): they are designed to be used and understood by humans. 
+
+Ex: The process of adding two numbers:
+
+```
+# Pseudocode for machine code instructions
+load the number from memory location 2001 into the CPU
+load the number from memory location 2002 into the CPU
+add the two numbers in the CPU
+store the result into location 2003
+```
+
+```python
+# Python code
+c = a + b
+```
+
+- A high-level language is easier to understand, but the computer won't understand it. We need to translate our computer code. A high-level language can either be compiled or interpreted. 
+- A compile is a complex computer program that takes another program written in high-level language and translates it into an equivalent program in the machine language of some computers. A high-level program is called **source code** and the resulting **machine code** is a program that the computer can directly execute. 
+![alt text](Images/General%202%20Compiling%20a%20high-level%20language.png)
