@@ -16,6 +16,10 @@
   - Machine cycle
   - Instruction cycle
 - [Programming](#programming)
+  - Hardware Basics
+  - Programming languages
+    - Machine code and CPU architecture
+    - Compiler and Interpreter
 
 # Minor technical terms
 ## Word
@@ -249,6 +253,37 @@ store the result into location 2003
 c = a + b
 ```
 
+### Machine code and CPU architecture
+- Machine language is the lowest-level programming language, consisting of binary code, that a computer's CPU can directly execute. The specific set of instructions that a CPU can execute is defined by its architecture. 
+- CPU architecture: Different CPU architectures have different sets of instructions. 
+
+Ex: Intel's i7 (13900K) processors use the x86-65 (or x64) architecture, while ARMv8 CPUs use the ARM architecture. A program for Intel i7 Processor in your laptop won't run directly on an ARMv8 CPU in your smartphone. 
+
+- To run a program designed for a different architecture, translation or emulations is required. Emulators can mimic the hardware of one architecture on another, but this often comes with a performance cost. 
+
+<details>
+  <summary><b>Case study: The approaches that Microsoft, Intel may take to transition from x86-64 to ARM architecture for the new lines of laptops for the sake of performance and battery life:</b></summary>
+  <br>
+  <ol>
+    <li>Native ARM applications: Requires developers to recompile their software to run natively on ARM architecture. This may involve making code adjustments and optimizations specific to ARM. Microsoft also provides tools and SDKs to help developers port their applications to ARM, similar to how Apple provides development tools for ARM-based Macbook. This approach is best for performance and utilizing the power of ARM architecture.</li>
+    <li>Emulation: Windows on ARM can include a built-in emulation layer that can translate x86 and x86-64 instructions in real-time. It often comes with a performance overhead compared to running native ARM applications.</li>
+    <li>Universal Binaries (Dual Architecture Support): Developers can create universal binaries that include both x86/x86-64 and ARM code. This way, the same application can run efficient on both architectures. Apple uses this approach with its "Universal 2" binaries. However, this can come with cost of hefty sizes of softwares.</li>
+  </ol>
+</details>
+
+### Compiler and Interpreter
 - A high-level language is easier to understand, but the computer won't understand it. We need to translate our computer code. A high-level language can either be compiled or interpreted. 
 - A compile is a complex computer program that takes another program written in high-level language and translates it into an equivalent program in the machine language of some computers. A high-level program is called **source code** and the resulting **machine code** is a program that the computer can directly execute. 
-![alt text](Images/General%202%20Compiling%20a%20high-level%20language.png)
+
+![Compiling process](Images/General%202%20Compiling%20a%20high-level%20language.png)
+- An interpreter is a program that simulates a computer that understands a high-level language. Rather than translating the source program into a machine language equivalent, the interpreter analyzes and executes the source code instruction by instruction as necessary.
+
+![Interpreting process](Images/General%203%20Interpreting%20a%20high-level%20language.png)
+
+Categories | Compiler | Interpreter |
+|---|---|---|
+**Operation time** | Before the execution. | During the execution.
+**Speed of execution** | Compiled programs run faster than interpreted ones. | The execution takes longer since the interpreter has to translate the code during runtime. 
+**Memory space allocation** | Require more memory to store the compiled program in machine code. | Translate and execute the code line by line --> Less memory.
+**Debugging adn Error handling** | Compilers usually provide more robust error checking and debugging features. They can detect syntax and semantic errors before the program is executed. | Interpreters can also detect syntax errors, might not catch semantic errors until the problematic line of code is executed. 
+**Portability** | Less portable since the compiled programs are tailored to a specific type of machine or OS. | More portable as interpreted programs 
