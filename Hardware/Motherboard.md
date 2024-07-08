@@ -16,6 +16,7 @@
   - Video ports --> Video cards / Video adapters 
   - Ethernet port --> Network interface card / Network adapter / Wifi adapter
   - Sound ports --> Integrated sound chipset / Đeicated sound card
+  - Old ports
   - I/O Shield
 5. [Form factors](#form-factors)
 6. [Storage](#storage)
@@ -172,18 +173,25 @@ An analogy borrowed from the field of electronics and electrical engineering. In
 
 ![USB Gens and How confusing they are](Images/Motherboard%209%20USB%20Gens.png)
 
+- USB 3.0 is usually denoted by a blue color. However, some manufacturers opt for making them some other non-conventional color for CVI, branding signature look. 
+
 ## Video ports
 - Some also have built-in video adapters. Old: DVI, VGA; New: HDMI, DisplayPort. 
 - The video ports link to the built-in video adapters on the motherboard, for CPUs that have integrated graphics cards (**integrated** GPU). 
 - The other type of video card is **dedicated** GPU. 
+- HDMI and DisplayPort both carry audio signals so they can utilize the monitor own internal speakers (if they have). 
 
 ![Video ports](Images/Motherboard%2010%20Video%20ports.png)
+(From left to right: DisplayPort, HDMI, DVI and VGA).
 
 ## Ethernet port (Network port)
 - The Ethernet port on a computer's I/O panel is typically connected to the computer's network interface card (NIC) (usually built-in) or network adapter. 
+- Usually supports a connection of at least 1 GBit per second. 
+- One light to indicate activity and another to indicate link speed. 
 
 ![Ethernet port](Images/Motherboard%2011%20Network%20port.png)
-- Some even have a built-in Wifi adapter with two knobs for antennas. 
+- Some even have a built-in WiFi adapter with two knobs for antennas. 
+- The WiFi adapter needs you to screw in the antenna for it to work (including a driver). 
 
 ## Sound ports
 The sound ports on a computer's I/O panel connect to the computer's sound card or audio chipset. 
@@ -197,10 +205,17 @@ Integrated sound chipset:
 - White (SS-Out): Side speakers.
 
 There are also dedicated sound cards that can be used for:
-- Improved audio quality: digital-to-analog converters (DACs) and analog-to-digital converters (ADCs), resulting in better sound reproduction and higher fidelity audio output. Good for **instruments' inputs**. 
+- Improved audio quality: digital-to-analog converters (DACs) and analog-to-digital converters (ADCs) (that bypass the computer's built-in Sound Processing), resulting in better sound reproduction and higher fidelity audio output. Good for **instruments' inputs**. 
 - Enhanced audio features: surround sound processing, virtualization effects, equalization controls, and advanced signal processing algorithms. 
 - Low latency sound. 
 - Multiple Input/Output ports.
+- Uses optical signal. 
+
+## Old ports
+![PS2 Port](Images/Motherboard%2011.1%20PS2%20Port.png)
+
+- To connect keyboards and mice before USB came along. 
+- Purple is usually for keyboards while green is for mice. 
 
 ## I/O Shield
 ![I/O Shield](Images/Motherboard%2012%20IO%20Shield.png)
